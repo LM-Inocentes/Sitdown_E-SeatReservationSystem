@@ -1,5 +1,4 @@
-<div div class="p-10">
-    
+<div>
     <ng-container  *ngFor = "let seat of seats">
             <div  *ngIf="Rowdiv(seat.SeatNo, seat.Col)"> </div>
                 <button  (click) = "ButtonClick(seat.SeatNo)">

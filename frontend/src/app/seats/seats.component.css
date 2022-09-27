@@ -32,10 +32,4 @@ button:active {
     transform: scale(0.99);
 }
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-  }
-.row {
-  display: flex;
-}
+
