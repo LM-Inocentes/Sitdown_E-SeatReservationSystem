@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SeatsComponent } from './seats/seats.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { EventPageComponent } from './event-page/event-page.component';
     SeatsComponent,
     LandingpageComponent,
     SignupComponent,
+    ReservationFormComponent,
     EventPageComponent
   ],
   imports: [
