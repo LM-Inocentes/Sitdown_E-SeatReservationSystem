@@ -9,6 +9,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventPageComponent } from './event-page/event-page.component';
     LandingpageComponent,
     SignupComponent,
     ReservationFormComponent,
-    EventPageComponent
+    EventPageComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
