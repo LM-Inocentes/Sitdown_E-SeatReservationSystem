@@ -1,1 +1,18 @@
-<p>seats works!</p>
+
+<div div class="pt-10 pl-10" id="SeatConfig" *ngIf = "isShowingSeats">
+    
+    <ng-container  *ngFor = "let seat of seats">
+            <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
+                <button  (click) = "ButtonClick(seat.SeatNo)">
+                    <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "25">
+                </button>     
+    </ng-container>
+
+</div>
+
+<div id = "ReservationForm" *ngIf = "isSeatsClicked">
+    
+
+</div>
+    
+
