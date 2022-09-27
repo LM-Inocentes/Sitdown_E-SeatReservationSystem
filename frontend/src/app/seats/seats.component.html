@@ -1,8 +1,7 @@
-
-<div div class="pt-10 pl-10" id="SeatConfig" *ngIf = "isShowingSeats">
+<div div class="p-10">
     
     <ng-container  *ngFor = "let seat of seats">
-            <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
+            <div  *ngIf="Rowdiv(seat.SeatNo, seat.Col)"> </div>
                 <button  (click) = "ButtonClick(seat.SeatNo)">
                     <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "25">
                 </button>     

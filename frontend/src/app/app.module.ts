@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EventListComponent } from './event-list/event-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
