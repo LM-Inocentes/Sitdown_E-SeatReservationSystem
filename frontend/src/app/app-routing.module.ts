@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SeatsComponent } from './seats/seats.component';
 import { SignupComponent } from './signup/signup.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path : 'login', component : LoginComponent},
     {path : 'sign-up', component : SignupComponent},
     {path : 'event-page', component : EventPageComponent},
+    {path : 'event-list', component : EventListComponent}
   ];
 
 // configures NgModule imports and exports

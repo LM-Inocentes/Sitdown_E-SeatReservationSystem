@@ -9,6 +9,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { EventListComponent } from './event-list/event-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -23,7 +24,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     ReservationFormComponent,
     EventPageComponent,
     ReservationPageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
