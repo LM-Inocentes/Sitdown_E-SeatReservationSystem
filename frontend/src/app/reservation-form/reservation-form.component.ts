@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationFormComponent implements OnInit {
 
+  onFileSelected(event: any){
+    console.log(event);
+  }
+
   constructor() { }
 
   ngOnInit(): void {

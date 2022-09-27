@@ -1,6 +1,26 @@
-<div class="h-56 grid grid-cols-2 gap-4 content-start">
-    <app-seats></app-seats>
-   
-    <div>05</div>
-  </div>
+<div>
+  <title>Login Form Design</title> 
+    
+  <body>
+      <div class="reservationbox">
+          <h1>Seat #</h1>
+          <form  action="/event-page">
+              <p>Name</p>
+              <input type="name"  formControlName="name">
+              <p>Date</p>
+              <input type="date" formControlName="date">
+              <p>Cost</p>
+              <div type="cost" formControlName="cost">
+                P400.00
+              </div>
+              <p>Payment Screenshot</p>
+              <input type="file" class="pt-3" (change)="onFileSelected($event)" >
+              <input type="submit"  value="SIGN IN">
+              <a href="/sign-up">Don't have an account? Sign up now</a>  
+          </form>
+      
+      </div>
+  </body>
+</div>
+
 

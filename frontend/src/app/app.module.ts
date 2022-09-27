@@ -10,6 +10,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LandingpageComponent,
     SignupComponent,
     ReservationFormComponent,
-    EventPageComponent
+    EventPageComponent,
+    ReservationPageComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
