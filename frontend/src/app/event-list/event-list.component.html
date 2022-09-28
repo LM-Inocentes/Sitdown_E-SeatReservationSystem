@@ -1,6 +1,6 @@
 
 <body>
-    <table class='table' *ngIf='events && events.length'>
+    <table class='table' *ngIf='eventss && eventss.length'>
         <thead>
         <tr>
             <th>
@@ -12,18 +12,16 @@
             <th style="color:firebrick">Event</th>
             <th>Location</th>
             <th>Date</th>
-            <th>Ticket Price</th>
-            <th>Available Seats</th>
+            <th>Price</th>
+            <th>Available</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let event of events'>
+        <tr *ngFor='let event of eventss'>
             <td>
                 <img *ngIf='showImage'
                      [src]='event.eventImg'
-                     [title]='event.eventName'
-                     [style.width.px]='imageWidth'
-                     [style.margin.px]='imageMargin'>
+                     [title]='event.eventName'>
             </td>
             <td><a href="./event-page">{{ event.eventName }}</a></td>
             <td>{{ event.eventLoc}}</td>
