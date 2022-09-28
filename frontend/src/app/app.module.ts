@@ -17,12 +17,6 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 
-import {
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +30,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     FileUploadComponent,
     EventListComponent,
     AdminPageComponent,
-    EventCreationComponent,
-    SocialLoginModule,
+    EventCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -45,20 +38,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('Google-Client-ID-Goes-Here'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
