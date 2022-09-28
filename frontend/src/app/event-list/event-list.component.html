@@ -1,6 +1,6 @@
 
 <body>
-    <table class='table' *ngIf='eventss && eventss.length'>
+    <table class='table' *ngIf='events && events.length'>
         <thead>
         <tr>
             <th>
@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let event of eventss'>
+        <tr *ngFor='let event of events'>
             <td>
                 <img *ngIf='showImage'
                      [src]='event.eventImg'
