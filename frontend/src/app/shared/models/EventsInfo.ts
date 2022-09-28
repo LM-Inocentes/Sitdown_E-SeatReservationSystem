@@ -1,8 +1,12 @@
 export class EventsInfo{
-    EventName!: string;
-    EventLocation!: string;
-    EventAbout!: string;
-    TotalSeats!: number;
-    Col!: number;
-    Price!: number;
+    eventID!: number;
+    eventName!: string;
+    eventDate!: string;
+    eventLoc!: string;
+    eventSeatTotal!: number;
+    eventSeatCol!: number;
+    eventSeatAvail!: number;
+    eventCost!: number;
+    eventAbout!: string;
+    eventImg!: string;
 }

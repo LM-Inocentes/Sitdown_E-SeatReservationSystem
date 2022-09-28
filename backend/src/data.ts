@@ -1,24 +1,40 @@
+export const sample_events: any = [
+  {
+    "eventID" : 1,
+    "eventName" : "Cebu Aurora Fest",
+    "eventDate" : "November 19, 2022",
+    "eventLoc" : "SRP Road, Cebu City",
+    "eventSeatTotal" : 200,
+    "eventSeatCol" : 10,
+    "eventSeatAvail" : 20,
+    "eventCost" : 500,
+    "eventAbout" : "yes",
+    "eventImg" : "./assets/aurorafest.jpg"
+},
+{
+    "eventID" : 2,
+    "eventName" : "Otakufest",
+    "eventDate" : "November 12, 2022",
+    "eventLoc" : "J-Centre Mall, Mandaue City",
+    "eventSeatTotal" : 200,
+    "eventSeatCol" : 10,
+    "eventSeatAvail" : 20,
+    "eventCost" : 500,
+    "eventAbout" : "yes",
+    "eventImg" : "./assets/aurorafest.jpg"
+},
+{
+    "eventID" : 3,
+    "eventName" : "LM Inocentes' Birthday",
+    "eventDate" : "December 25, 2022",
+    "eventLoc" : "Il Corso Foods, Cebu City",
+    "eventSeatTotal" : 200,
+    "eventSeatCol" : 10,
+    "eventSeatAvail" : 20,
+    "eventCost" : 500,
+    "eventAbout" : "yes",
+    "eventImg" : "./assets/aurorafest.jpg"
+}
+]
 
-export class SeatsInfoService {
-    ImgSeat: string = './assets/Available.png';
-    seatString: string = '';
-    i: number = 1;
-    j: number = 1;
-    TotalSeats: number = 50;
-    Col: number = 10;
-  
-    seats:any[] = [];
-   
-    constructor() { }
-  
-    getSeats():any[]{
-      var pushseats:any;
-     
-      for(; this.j<=this.TotalSeats; this.j++){
-          pushseats = {TotalSeats: this.TotalSeats, Col: this.Col, SeatNo: this.j+((this.i-1)*this.Col), isAvailable: true, img:this.ImgSeat, Name:'' , ReservedDate: new Date(), imgPayment:''}; 
-          this.seats.push(pushseats); 
-          console.log(this.seats[this.j-1]);
-      }
-      return this.seats;
-    }
-  }
+
