@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationFormComponent implements OnInit {
 
+  cost:number = 400;
   onFileSelected(event: any){
     console.log(event);
   }

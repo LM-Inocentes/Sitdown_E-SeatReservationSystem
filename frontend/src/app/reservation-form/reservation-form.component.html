@@ -11,7 +11,7 @@
               <input type="date" formControlName="date">
               <p>Cost</p>
               <div type="cost" formControlName="cost">
-                P400.00
+                {{ cost |currency:'PHP'}}
               </div>
               <p>Payment Screenshot</p>
               <input type="file" class="pt-3" (change)="onFileSelected($event)" >

@@ -1,4 +1,4 @@
-export class Events{
+export class EventsInfo{
     EventName!: string;
     EventLocation!: string;
     EventAbout!: string;
