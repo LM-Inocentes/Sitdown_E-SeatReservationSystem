@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { sample_events } from 'src/data';
 import { EVENTS_URL } from '../shared/constants/urls';
 import { EventsInfo } from '../shared/models/EventsInfo';
 

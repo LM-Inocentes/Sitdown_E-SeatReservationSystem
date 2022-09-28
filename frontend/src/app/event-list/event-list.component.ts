@@ -26,14 +26,14 @@ interface EventsL{
 
 export class EventListComponent implements OnInit {
 
-  Events: EventsInfo[] = [];
+  events: EventsInfo[] = [];
 
   constructor(private eventService: EventsService) { 
     let EventsObservable: Observable<EventsInfo[]>;
     
     EventsObservable = eventService.getEvents();
     EventsObservable.subscribe((serverEvents) => {
-      this.Events = serverEvents;
+      this.events = serverEvents;
     })
   }
 
@@ -44,44 +44,6 @@ export class EventListComponent implements OnInit {
   imageWidth = 45;
   imageMargin = 1;
   showImage = true;
-  events: EventsL[] = [
-    {
-        "eventID" : 1,
-        "eventName" : "Cebu Aurora Fest",
-        "eventDate" : "November 19, 2022",
-        "eventLoc" : "SRP Road, Cebu City",
-        "eventSeatTotal" : 200,
-        "eventSeatCol" : 10,
-        "eventSeatAvail" : 20,
-        "eventCost" : 500,
-        "eventAbout" : "yes",
-        "eventImg" : "./assets/aurorafest.jpg"
-    },
-    {
-        "eventID" : 2,
-        "eventName" : "Otakufest",
-        "eventDate" : "November 12, 2022",
-        "eventLoc" : "J-Centre Mall, Mandaue City",
-        "eventSeatTotal" : 200,
-        "eventSeatCol" : 10,
-        "eventSeatAvail" : 20,
-        "eventCost" : 500,
-        "eventAbout" : "yes",
-        "eventImg" : "./assets/aurorafest.jpg"
-    },
-    {
-        "eventID" : 3,
-        "eventName" : "LM Inocentes' Birthday",
-        "eventDate" : "December 25, 2022",
-        "eventLoc" : "Il Corso Foods, Cebu City",
-        "eventSeatTotal" : 200,
-        "eventSeatCol" : 10,
-        "eventSeatAvail" : 20,
-        "eventCost" : 500,
-        "eventAbout" : "yes",
-        "eventImg" : "./assets/aurorafest.jpg"
-    }
-]
 
   toggleImage(): void {
     this.showImage = !this.showImage;
