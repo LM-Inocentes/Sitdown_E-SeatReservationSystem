@@ -23,7 +23,7 @@
                      [src]='event.eventImg'
                      [title]='event.eventName'>
             </td>
-            <td><a href="./event-page">{{ event.eventName }}</a></td>
+            <td><a (click)="sendSelectedEvent(event.eventID)" href="./event-page">{{ event.eventName }}</a></td>
             <td>{{ event.eventLoc}}</td>
             <td>{{ event.eventDate }}</td>
             <td>{{ event.eventCost | currency:'PHP':'symbol':'1.2-2' }}</td>
