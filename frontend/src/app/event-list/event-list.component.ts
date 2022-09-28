@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsInfo } from '../shared/models/EventsInfo';
+import { EventsService } from '../services/events.service';
 import { EventsL } from './events';
+import { Observable } from 'rxjs';
+
 /*
 interface EventsL{
   eventID: number;
@@ -22,8 +26,16 @@ interface EventsL{
 
 export class EventListComponent implements OnInit {
 
+  Events: EventsInfo[] = [];
 
-  constructor() { }
+  constructor(private eventService: EventsService) { 
+    let EventsObservable: Observable<EventsInfo[]>;
+    
+    EventsObservable = eventService.getEvents();
+    EventsObservable.subscribe((serverEvents) => {
+      this.Events = serverEvents;
+    })
+  }
 
   ngOnInit(): void {
   }
