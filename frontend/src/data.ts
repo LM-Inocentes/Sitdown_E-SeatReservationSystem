@@ -1,8 +1,8 @@
 import { User } from "./app/shared/models/User";
 import { SeatsInfo } from "./app/shared/models/SeatsInfo";
-import { Events } from "./app/shared/models/Events";
+import { EventsInfo } from "./app/shared/models/EventsInfo";
 
-export const sample_events: Events[] = [
+export const sample_events: EventsInfo[] = [
     {
         EventName: "Concert",
         EventLocation: "Cebu City",

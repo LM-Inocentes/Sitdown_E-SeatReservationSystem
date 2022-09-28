@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Events } from '../shared/models/Events';
+import { sample_events } from 'src/data';
+import { EventsInfo } from '../shared/models/EventsInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class EventsService {
 
   constructor() { }
 
-  getEvents():Event[]{
-    return 
+  getEvents():EventsInfo[]{
+    return sample_events;
   }
 }
