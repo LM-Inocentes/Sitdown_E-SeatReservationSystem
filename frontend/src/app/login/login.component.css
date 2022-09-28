@@ -37,7 +37,15 @@ h1{
 
 .loginbox input{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.error-list
+{
+    outline: none;
+    height: 40px;
+    color: rgb(21, 191, 221);
+    font-size: 12px;
 }
 
 .loginbox input[type="email"], input[type="password"]
