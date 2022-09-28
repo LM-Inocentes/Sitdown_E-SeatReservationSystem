@@ -5,12 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.css']
 })
+
 export class EventPageComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  
 
   EventName: string = 'Cebu Aurora Fest';
   EventLoc: string = 'SRP Road, Cebu City';

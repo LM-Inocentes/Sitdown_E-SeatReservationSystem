@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsL } from './events';
-/*
-interface EventsL{
+import eventsList from './events-list.json';  
+
+interface EventsL {
   eventID: number;
   eventName: string;
   eventDate: string;
@@ -13,7 +13,7 @@ interface EventsL{
   eventAbout: string;
   eventImg: string;
 }
-*/
+
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
@@ -21,7 +21,7 @@ interface EventsL{
 })
 
 export class EventListComponent implements OnInit {
-
+  
 
   constructor() { }
 
@@ -32,6 +32,8 @@ export class EventListComponent implements OnInit {
   imageWidth = 45;
   imageMargin = 1;
   showImage = true;
+  eventss: EventsL[] = eventsList ;
+  /*
   events: EventsL[] = [
     {
         "eventID" : 1,
@@ -69,7 +71,8 @@ export class EventListComponent implements OnInit {
         "eventAbout" : "yes",
         "eventImg" : "./assets/aurorafest.jpg"
     }
-]
+  ]
+  */
 
   toggleImage(): void {
     this.showImage = !this.showImage;
