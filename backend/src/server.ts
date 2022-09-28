@@ -12,9 +12,7 @@ app.use(cors({
 }));
 
 app.get("/api/events-info", (req, res) =>{
-    console.log(sample_events);
     res.send(sample_events);
-    console.log(sample_events);
 })
 
 app.post("/api/users/login", (req, res) =>{
