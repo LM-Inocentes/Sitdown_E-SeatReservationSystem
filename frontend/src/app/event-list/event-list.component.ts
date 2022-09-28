@@ -12,10 +12,6 @@ import { Observable } from 'rxjs';
 })
 
 export class EventListComponent implements OnInit {            
-  sendSelectedEvent(eventID: number) 
-  {
-    alert(eventID);
-  }
 
   events: EventsInfo[] = [];
 
@@ -39,6 +35,4 @@ export class EventListComponent implements OnInit {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
-
-
 }
