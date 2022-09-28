@@ -3,27 +3,15 @@ import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
 import { Observable } from 'rxjs';
 
-/*
-interface EventsL{
-  eventID: number;
-  eventName: string;
-  eventDate: string;
-  eventLoc: string;
-  eventSeatTotal: number;
-  eventSeatCol: number;
-  eventSeatAvail: number;
-  eventCost: number;
-  eventAbout: string;
-  eventImg: string;
-}
-*/
+//Events data are retrieved from backend api
+
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.css']
 })
 
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit {            
 
   events: EventsInfo[] = [];
 
