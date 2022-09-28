@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,14 +22,15 @@ export class LoginComponent implements OnInit {
     //loginforms.controls.email
     //form.email
 
-  get form(): { [key: string]: AbstractControl; }
+  get form()
   {
     return this.loginForm.controls;
   }
 
   submittest(){
     this.isSubmitted = true;
-    if(this.loginForm.invalid) return alert("invalid input");
+    if(this.loginForm.invalid) return;
+
 
     console.log(this.form['email'].value);
     console.log(this.form['password'].value);

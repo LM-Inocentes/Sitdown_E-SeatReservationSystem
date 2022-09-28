@@ -14,6 +14,8 @@ import { EventListComponent } from './event-list/event-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { EventCreationComponent } from './event-creation/event-creation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     EventPageComponent,
     ReservationPageComponent,
     FileUploadComponent,
-    EventListComponent
+    EventListComponent,
+    AdminPageComponent,
+    EventCreationComponent
   ],
   imports: [
     BrowserModule,

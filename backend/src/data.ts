@@ -37,4 +37,19 @@ export const sample_events: any = [
 }
 ]
 
-
+export const sample_users: any[] = [
+    {
+        Firstname: "LM",
+        Lastname: "Inocentes",
+        email: "lminocentes@gmail.com",
+        password: "lmi123",
+        isAdmin: true,
+    },
+    {
+        Firstname: "John",
+        Lastname: "Pers",
+        email: "john@gmail.com",
+        password: "john123",
+        isAdmin: false,
+    }
+]
