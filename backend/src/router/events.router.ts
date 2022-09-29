@@ -22,7 +22,7 @@ router.get("/seed", asyncHandler( async (req, res) =>{
 router.get("/", asyncHandler(
     async (req, res) =>{
         const events = await EventModel.find();
-        res.send(events);
+        res.send(events);                       //sending events from database
     }
 ))
 
