@@ -1,3 +1,5 @@
+
+
 export class EventsInfo{
     eventID!: number;
     eventName!: string;

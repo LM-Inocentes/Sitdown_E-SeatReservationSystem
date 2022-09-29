@@ -1,6 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { dbConnect } from './configs/database.config';
 import express from "express";
 import cors from "cors";
-import { sample_events } from "./data";
+import eventsRouter from './router/events.router';
+import userRouter from './router/user.router';
+dbConnect();
 
 const app = express();
 
@@ -10,15 +16,10 @@ app.use(cors({
     origin:["http://localhost:4200"],
 }));
 
-app.get("/api/events-info", (req, res) =>{
-    res.send(sample_events);
+app.use("/api/events-info", eventsRouter);
+app.use("/api/users/", userRouter);
 
-})
 
-app.post("/api/users/login", (req, res) =>{
-    const body = req.body;
-
-})
 
 const port = 5000;
 app.listen(port, () => {
