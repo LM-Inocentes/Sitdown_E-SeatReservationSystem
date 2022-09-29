@@ -4,4 +4,6 @@ export class User{
     Lastname!: string;
     email!: string;
     password!: string;
+    token!:string;
+    isAdmin!:boolean;
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,20 @@ import { EventCreationComponent } from './event-creation/event-creation.componen
     FileUploadComponent,
     EventListComponent,
     AdminPageComponent,
-    EventCreationComponent
+    EventCreationComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      newestOnTop: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
