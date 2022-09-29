@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
 import { Observable } from 'rxjs';
@@ -15,7 +15,10 @@ export class EventListComponent implements OnInit {
   sendSelectedEvent(eventID: number) 
   {
     alert(eventID);
+    this.sEventID.emit(eventID);
   }
+
+  @Output() sEventID = new EventEmitter<number>();
 
   events: EventsInfo[] = [];
 
