@@ -19,8 +19,11 @@ router.get("/seed", asyncHandler( async (req, res) =>{
 ))
 
 
-router.get("/", (req, res) =>{
-    res.send(sample_events);
-})
+router.get("/", asyncHandler(
+    async (req, res) =>{
+        const events = await EventModel.find();
+        res.send(events);
+    }
+))
 
 export default router;
