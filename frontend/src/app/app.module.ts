@@ -19,6 +19,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { HeaderComponent } from './header/header.component';
+import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HeaderComponent } from './header/header.component';
     EventListComponent,
     AdminPageComponent,
     EventCreationComponent,
-    HeaderComponent
+    HeaderComponent,
+    CustomerEventListComponent
   ],
   imports: [
     BrowserModule,
