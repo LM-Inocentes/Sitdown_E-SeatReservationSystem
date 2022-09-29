@@ -20,6 +20,7 @@ export class EventPageComponent implements OnInit {
     this.EventAbout = this.events[eventID-1].eventAbout;
   }
 
+  @Input() EventID: number = 1;
   EventName: string = 'Cebu Aurora Fests';
   EventLoc: string = 'SRP Road, Cebu City';
   EventAbout: string = 'After two years of hiatus due to the pandemic, Aurora Music Festival in Cebu is giving us the sign to feel once again the fun, enjoy and appreciate some great music from the different bands.';
@@ -31,10 +32,14 @@ export class EventPageComponent implements OnInit {
     EventsObservable.subscribe((serverEvents) => {
       this.events = serverEvents;
     })
+
+    
+    //alert("test");
+    //this.updateEventPageUI(3);
   }
 
   ngOnInit(): void {
-    this.updateEventPageUI(2);
+    
   }
 
 }

@@ -5,12 +5,12 @@
                 <img src="./assets/aurorafest.jpg" class='event-img'>
             </div>
             <div class='div-event-details'>
-                <h1 class='event-title' id="event-name">{{EventName}}</h1>
-                <h3 class='event-title subtitle' id="event-location">{{EventLoc}}</h3>
+                <h1 class='event-title' id="event-name">{{events[EventID-1].eventName}}</h1>
+                <h3 class='event-title subtitle' id="event-location">{{events[EventID-1].eventLoc}}</h3>
                 <br>
                 <h4 class='event-about'><a (click)="updateEventPageUI(3)">About</a></h4>
                 <p class='p-about' id="event-about">
-                {{EventAbout}}
+                {{events[EventID-1].eventAbout}}
                 </p>
             </div>
         </div>
