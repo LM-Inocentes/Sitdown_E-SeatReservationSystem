@@ -43,8 +43,4 @@ export class EventListComponent implements OnInit {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
-  sendSelectedEvent(eventID: number) 
-  {
-    alert(eventID);
-  }
 }
