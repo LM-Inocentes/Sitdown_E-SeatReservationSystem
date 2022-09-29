@@ -26,4 +26,12 @@ router.get("/", asyncHandler(
     }
 ))
 
+  router.get("/search/:searchTerm", asyncHandler(
+    async (req, res) => {
+      const searchRegex = new RegExp(req.params.searchTerm, 'i');
+      const events = await EventModel.find({eventName: {$regex:searchRegex}})
+      res.send(events);
+    }
+  ))
+
 export default router;

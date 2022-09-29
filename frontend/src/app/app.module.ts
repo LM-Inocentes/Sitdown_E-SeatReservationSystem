@@ -20,6 +20,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CustomerEventListComponent } from './customer-event-list/customer-event
     AdminPageComponent,
     EventCreationComponent,
     HeaderComponent,
-    CustomerEventListComponent
+    CustomerEventListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

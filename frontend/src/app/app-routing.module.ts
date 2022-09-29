@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
     {path : 'sign-up', component : SignupComponent},
     {path : 'event-page', component : EventPageComponent},
     {path : 'event-list', component : EventListComponent},
-    {path : 'reservation-page', component : ReservationPageComponent}
+    {path : 'reservation-page', component : ReservationPageComponent},
+    {path : 'customer-event-list', component : CustomerEventListComponent},
+    {path : 'search/:searchTerm', component : CustomerEventListComponent}
   ];
 
 // configures NgModule imports and exports
