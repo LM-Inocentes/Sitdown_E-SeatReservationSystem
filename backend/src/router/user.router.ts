@@ -25,7 +25,8 @@ router.get("/", (req, res) =>{
     res.send(sample_users);
 })
 
-router.post("/", (req, res) =>{
+
+router.post("/login", (req, res) =>{
     const {email, password} = req.body;
     const user = sample_users.find(user=> user.email === email && user.password === password);
 
