@@ -23,16 +23,21 @@ router.get("/seed", asyncHandler( async (req, res) =>{
 
 
 
-router.post("/login", (req, res) =>{
-    const {email, password} = req.body;
-    const user = sample_users.find(user=> user.email === email && user.password === password);
-
-    if(user){
+router.post("/login",  asyncHandler(
+    async (req, res) => {
+      const {email, password} = req.body;
+      const user = await UserModel.findOne({ email });
+      if(!user){                                                                    //if user email does not exist
+        res.status(HTTP_BAD_REQUEST).send("Email does not exist");
+        return;
+      }
+      const isPassMatch = await bcrypt.compare(password, user.password); 
+      if(isPassMatch) {
         res.send(generateTokenResponse(user));
-    }else{
-        res.status(400).send("Username or password is not valid");
+      }
     }
-})
+))
+
 
 router.post('/register', asyncHandler(
     async (req, res) => {
@@ -43,31 +48,38 @@ router.post('/register', asyncHandler(
         .send('User email already exist!');
         return;
       }
-    
-    const encryptedPassword = await bcrypt.hash(password, 15);
-
+    const salt = await bcrypt.genSalt(10); 
     const newUser:IUser = {
       id:'',
       Firstname,
       Lastname,
       email: email.toLowerCase(),
-      password: encryptedPassword,
+      password: await bcrypt.hash(password, salt),       //hash and salts the password with bcrypt
       isAdmin: false
     }
-
-    const dbUser = await UserModel.create(newUser);
+    
+    const dbUser = await UserModel.create(newUser);  
     res.send(generateTokenResponse(dbUser));
   }
 ))
 
+
+
 const generateTokenResponse = (user:any) => {
     const token = jwt.sign({
-        email: user.email, isAdmin:user.isAdmin
+        id: user.id, email:user.email, isAdmin: user.isAdmin
     },"Some Text",{
         expiresIn: "30d"
     })
-    user.token = token;
-    return user;
+    return {
+        id: user.id,
+        email: user.email,
+        password: user.password,
+        Firstname: user.Firstname,
+        Lastname: user.Lastname,
+        isAdmin: user.isAdmin,
+        token: token,
+      };
 }
 
 export default router;

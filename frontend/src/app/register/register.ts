@@ -48,8 +48,8 @@ export class RegisterComponent implements OnInit {
 
     const fv= this.registerForm.value;
     const user :IUserRegister = {
-      Firstname: fv.name,
-      Lastname: fv.name,
+      Firstname: fv.Firstname,
+      Lastname: fv.Lastname,
       email: fv.email,
       password: fv.password,
       confirmPassword: fv.confirmPassword,
