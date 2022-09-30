@@ -30,4 +30,10 @@ export class CustomerEventListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  sendSelectedEvent(eventID: number) 
+  {
+    alert("EventID: " + eventID);
+    //send selected event ID to database
+  }
 }

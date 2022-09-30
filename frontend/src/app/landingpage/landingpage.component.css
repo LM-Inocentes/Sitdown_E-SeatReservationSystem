@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.homepage {
+
+    justify-content: center;
+    padding: 0;
+    height: 95vh;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(218.31deg, rgba(54, 79, 107, 0.602412) 0%, 
+    rgba(54, 79, 107, 0.58) 50%, #364F6B 100%);
+}
+
+.containerwrap {
+    position: relative;
+    display: block;
+    padding: 120px 30px;
+}
+
+.row {
+    display:flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:1290px) {
+    .row { flex-wrap: wrap;  }
+}
+
+.col1 {
+    flex-basis: 60%;
+    position: relative;
+}
+
+.col2 {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.col1 h1 {
+    position: relative;
+    padding-top: 160px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 96px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.col1 h2 {
+    position: relative;
+
+    font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 42px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.col1 p {
+    position: relative;
+
+    width: 448px;
+    height: 130px;
+    top: 30px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+    text-align: justify;
+    border-top: 3px solid rgba(255, 255, 255, 0.35);
+    color: #1E1E1E;
+}
+
+.logo {
+    position: relative;
+    width: 400px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 60px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
+    border-radius: 10px;
+}
+
+.graphic {
+    position: relative;
+    width: 500px;
+}
+
