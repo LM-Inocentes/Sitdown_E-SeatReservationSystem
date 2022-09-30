@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { LoginComponent } from './login/login.component';
 import { SeatsComponent } from './seats/seats.component';
-import { SignupComponent } from './signup/signup.component';
+import { RegisterComponent } from './register/register';
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
@@ -13,7 +13,7 @@ import { CustomerEventListComponent } from './customer-event-list/customer-event
 const routes: Routes = [
     {path : 'landing-page', component : LandingpageComponent},
     {path : 'login', component : LoginComponent},
-    {path : 'sign-up', component : SignupComponent},
+    {path : 'register', component : RegisterComponent},
     {path : 'event-page', component : EventPageComponent},
     {path : 'event-list', component : EventListComponent},
     {path : 'reservation-page', component : ReservationPageComponent},

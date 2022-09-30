@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  submittest(){
+  submit(){
     this.isSubmitted = true;
     if(this.loginForm.invalid) return;
 

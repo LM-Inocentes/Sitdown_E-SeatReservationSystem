@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SeatsComponent } from './seats/seats.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
-import { SignupComponent } from './signup/signup.component';
+import { RegisterComponent } from './register/register';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventListComponent } from './event-list/event-list.component';
@@ -28,7 +28,7 @@ import { SearchComponent } from './search/search.component';
     LoginComponent,
     SeatsComponent,
     LandingpageComponent,
-    SignupComponent,
+    RegisterComponent,
     ReservationFormComponent,
     EventPageComponent,
     ReservationPageComponent,

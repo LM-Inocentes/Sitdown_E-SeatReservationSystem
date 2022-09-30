@@ -1,9 +1,8 @@
 <div>
-    <title>Login Form Design</title>    
 <body>
     <div class="loginbox">
-        <h1>Sign in</h1>
-        <form [formGroup]="loginForm"  (ngSubmit)="submittest()" action="/event-list">
+        <h1>Login</h1>
+        <form [formGroup]="loginForm"  (ngSubmit)="submit()">
             <p>Email</p>
             <input type="email" placeholder="Email Address" formControlName="email"/>
             <div class="error-list" *ngIf = "form.email.errors && isSubmitted">
@@ -16,7 +15,7 @@
                 <div  *ngIf = "form.password.errors.required">Should not be empty</div>
             </div>
             <input type="submit" action="/event-list" value="SIGN IN">
-            <a href="/sign-up">Don't have an account? Sign up now</a>  
+            <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}">Don't have an account? Sign up now</a>  
         </form>
         
     </div>
