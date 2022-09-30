@@ -21,6 +21,9 @@ import { EventCreationComponent } from './event-creation/event-creation.componen
 import { HeaderComponent } from './header/header.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 import { SearchComponent } from './search/search.component';
+import { InputContainerComponent } from './input/input-container/input-container.component';
+import { InputValidationComponent } from './input/input-validation/input-validation.component';
+import { TextInputComponent } from './input/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { SearchComponent } from './search/search.component';
     HeaderComponent,
     CustomerEventListComponent,
     SearchComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
   ],
   imports: [
     BrowserModule,

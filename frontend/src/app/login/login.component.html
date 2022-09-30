@@ -3,17 +3,8 @@
     <div class="loginbox">
         <h1>Login</h1>
         <form [formGroup]="loginForm"  (ngSubmit)="submit()">
-            <p>Email</p>
-            <input type="email" placeholder="Email Address" formControlName="email"/>
-            <div class="error-list" *ngIf = "form.email.errors && isSubmitted">
-                <div  *ngIf = "form.email.errors.required && isSubmitted ">Should not be empty</div>
-                <div  *ngIf = "form.email.errors && !form.email.errors.required">Email not in correct format</div>
-            </div>
-            <p>Password</p>
-            <input type="password" placeholder="Password" formControlName="password">
-            <div class="error-list" *ngIf = "form.password.errors && isSubmitted">
-                <div  *ngIf = "form.password.errors.required">Should not be empty</div>
-            </div>
+            <text-input [control] = "form.email" [showErrorsWhen] = "isSubmitted" type = "email" label = "Email"></text-input>
+            <text-input [control] = "form.password" [showErrorsWhen] = "isSubmitted" type = "password" label = "Password"></text-input>
             <input type="submit" action="/event-list" value="SIGN IN">
             <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}">Don't have an account? Sign up now</a>  
         </form>
