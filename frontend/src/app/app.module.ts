@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -24,6 +24,8 @@ import { SearchComponent } from './search/search.component';
 import { InputContainerComponent } from './input/input-container/input-container.component';
 import { InputValidationComponent } from './input/input-validation/input-validation.component';
 import { TextInputComponent } from './input/text-input/text-input.component';
+import { InputLoadingComponent } from './input/input-loading/input-loading.component';
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { TextInputComponent } from './input/text-input/text-input.component';
     InputContainerComponent,
     InputValidationComponent,
     TextInputComponent,
+    InputLoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,9 @@ import { TextInputComponent } from './input/text-input/text-input.component';
       newestOnTop: false,
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
