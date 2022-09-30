@@ -21,9 +21,6 @@ router.get("/seed", asyncHandler( async (req, res) =>{
 }
 ))
 
-router.get("/", (req, res) =>{
-    res.send(sample_users);
-})
 
 
 router.post("/login", (req, res) =>{
