@@ -38,7 +38,7 @@ import { SearchComponent } from './search/search.component';
     EventCreationComponent,
     HeaderComponent,
     CustomerEventListComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

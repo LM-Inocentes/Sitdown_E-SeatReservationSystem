@@ -3,14 +3,14 @@
     <div class="loginbox">
         <h1>Register</h1>
         <form [formGroup]="registerForm"  (ngSubmit)="submit()">
-            <input type="text" formControlName="Firstname"  name="Firstname" placeholder="First Name">
+            <input type="text" formControlName="Firstname" name="Firstname" placeholder="First Name">
             <input type="text"  formControlName="Lastname" name="" placeholder="Last Name">
             <input type="text"  formControlName="email" name="" placeholder="Email Address">
             <input type="password"  formControlName="password" name="" placeholder="Password">
             <input type="password"  formControlName="confirmPassword" name="" placeholder="Repeat Password">
             <input type="submit" name="" value="REGISTER">
             <input type="submit" name="" value="GOOGLE SIGN IN">
-            <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Already have an account? Sign in</a>  
+            <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Already have an account? Register</a>  
         </form>
     
     </div>
