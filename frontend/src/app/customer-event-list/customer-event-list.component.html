@@ -2,7 +2,7 @@
 
 <ul>
     <li *ngFor="let event of events">
-      <a routerLink="/event/{{event.eventID}}">
+      <a routerLink="/event/{{event.eventID}}" (click)="sendSelectedEvent(event.eventID)">
         <img [src]="event.eventImg" [alt]="event.eventName" />
         <div class="content">
           <div class="name">
