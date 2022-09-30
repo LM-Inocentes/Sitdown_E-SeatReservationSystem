@@ -21,7 +21,7 @@ app.use("/api/users/", userRouter);
 
 
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log("Website is served on http://localhost:" +port);
 })
