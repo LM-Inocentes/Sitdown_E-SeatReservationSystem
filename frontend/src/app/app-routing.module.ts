@@ -9,12 +9,9 @@ import { EventListComponent } from './event-list/event-list.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-<<<<<<< Updated upstream
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
 import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
-=======
 import { EventCreationComponent } from './event-creation/event-creation.component';
->>>>>>> Stashed changes
 
 const routes: Routes = [
     {path : 'landing-page', component : LandingpageComponent},
@@ -26,12 +23,9 @@ const routes: Routes = [
     {path : 'customer-event-list', component : CustomerEventListComponent},
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},
-<<<<<<< Updated upstream
     {path : 'admin-event-list', component : AdminEventListComponent},
-    {path : 'admin-event-create', component : AdminEventCreateComponent}
-=======
+    {path : 'admin-event-create', component : AdminEventCreateComponent},
     {path : 'event-creation', component : EventCreationComponent},
->>>>>>> Stashed changes
   ];
 
 // configures NgModule imports and exports
