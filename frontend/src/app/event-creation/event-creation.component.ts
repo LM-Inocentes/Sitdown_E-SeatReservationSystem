@@ -39,6 +39,12 @@ export class EventCreationComponent implements OnInit {
     return this.eventForm.controls;
   }
 
+  upload(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const files = target.files as FileList;
+    console.log(files);
+  }
+
   submit(){
     this.isSubmitted = true;
     if(this.eventForm.invalid) return;

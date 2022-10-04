@@ -3,17 +3,16 @@
         <h1>Create</h1>
         <form [formGroup]="eventForm"  (ngSubmit)="submit()">
             <text-input [control] = "form.eventName" [showErrorsWhen] = "isSubmitted" label = "Event Name"></text-input>
-            <text-input [control] = "form.eventDate" [showErrorsWhen] = "isSubmitted" label = "Event Date"></text-input>
+            <text-input type="date" [control] = "form.eventDate" [showErrorsWhen] = "isSubmitted" label = "Event Date"></text-input>
             <text-input [control] = "form.eventLoc" [showErrorsWhen] = "isSubmitted" label = "Event Location"></text-input>
             <text-input [control] = "form.eventAbout" [showErrorsWhen] = "isSubmitted" label = "Event About"></text-input>
             <text-input [control] = "form.eventSeatTotal" [showErrorsWhen] = "isSubmitted" label = "Total Seats"></text-input>
             <text-input [control] = "form.eventSeatCol" [showErrorsWhen] = "isSubmitted" label = "Seat Columns"></text-input>
             <text-input [control] = "form.eventCost" [showErrorsWhen] = "isSubmitted" label = "Event Cost"></text-input>
+            <label for="file">Event Image</label>
+            <input type="file" (change)="upload($event)" accept="image/jpeg, image/png">
 
-
-            <input type="submit" name="" value="Create">
-            <input type="submit" name="" value="GOOGLE SIGN IN">
-            <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Already have an account? Login</a>  
+            <input type="submit" name="" value="Create"> 
         </form>
     
     </div>
