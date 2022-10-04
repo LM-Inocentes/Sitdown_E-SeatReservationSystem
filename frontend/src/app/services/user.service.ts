@@ -14,6 +14,7 @@ const USER_KEY = 'User';
 export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable: Observable<User>;
+  private isLoggedIn = false;
 
   constructor(private http:HttpClient, private toastrService: ToastrService) { 
     this.userObservable = this.userSubject.asObservable();
@@ -33,6 +34,7 @@ export class UserService {
             `Welcome ${user.Firstname}!`,
             'Login Successfully'
           )
+          this.isLoggedIn = true;
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Login Failed');
@@ -52,6 +54,7 @@ export class UserService {
             `Welcome ${user.Firstname}!`,
             'Registered Successfully'
           )
+          this.isLoggedIn = true;
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Register Failed');
@@ -64,6 +67,7 @@ export class UserService {
   logout(){
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
+    this.isLoggedIn = false;
     window.location.reload();
   }
 
@@ -77,9 +81,8 @@ export class UserService {
     return new User();
   }
 
-  get isLoggedIn(): boolean {
-    const  userJson = localStorage.getItem(USER_KEY)!;
-    return  userJson !== 'null' ? true : false;
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
   }
 
 }
