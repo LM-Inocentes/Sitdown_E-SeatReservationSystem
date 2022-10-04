@@ -1,0 +1,36 @@
+<body>
+    <h2>Reservations</h2>
+    <table class='res-table' *ngIf='events && events.length'>
+        <thead>
+        <tr>
+            <th class="event-img">
+                <button class='btn btn-primary'
+                        (click)='toggleImage()'>
+                    {{showImage ? 'Hide ' : 'Show'}} Image
+                </button>
+            </th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Seat Number</th>
+            <th>Status</th>
+            <th>Generated Ticket ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor='let event of events'>
+            <td>
+                <img *ngIf='showImage'
+                     [src]='event.eventImg'
+                     [title]='event.eventName'>
+            </td>
+            <td><a (click)="sendSelectedEvent(event.eventID)" href="./event-page">{{ event.eventName }}</a></td>
+            <td>{{ event.eventDate }}</td>
+            <td>[insert name here]</td>
+            <td>[insert seat number here]</td>
+            <td>[Pending/Approved/Cancelled]</td>
+            <td>[insert ticket ID]</td>
+        </tr>
+        </tbody>
+    </table>
+</body>

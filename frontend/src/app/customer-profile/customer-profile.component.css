@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.event-img {
+    text-align: center;
+}
+
+.res-table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 1em;
+    min-width: 70vw;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.res-table thead tr{
+    text-align: left;
+    background-color: rgb(43, 11, 80);
+    color: white;
+    font-weight: bold;
+}
+
+.res-table th,
+.res-table td {
+    padding: 12px 15px;
+}
+
+.res-table tbody tr {
+    border-bottom: 1px solid lightgray;
+}
+
+.res-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.res-table tbody tr:last-of-type{
+    border-bottom: 2px solid rgb(43, 11, 80);
+}
+
+img {
+    display: block;
+    margin:0 auto;
+    max-height: 100px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+}

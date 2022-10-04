@@ -8,6 +8,7 @@ import { EventPageComponent } from './event-page/event-page.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path : 'event-list', component : EventListComponent},
     {path : 'reservation-page', component : ReservationPageComponent},
     {path : 'customer-event-list', component : CustomerEventListComponent},
-    {path : 'search/:searchTerm', component : CustomerEventListComponent}
+    {path : 'search/:searchTerm', component : CustomerEventListComponent},
+    {path : 'customer-profile', component : CustomerProfileComponent}
   ];
 
 // configures NgModule imports and exports

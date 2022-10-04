@@ -26,6 +26,7 @@ import { InputValidationComponent } from './input/input-validation/input-validat
 import { TextInputComponent } from './input/text-input/text-input.component';
 import { InputLoadingComponent } from './input/input-loading/input-loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     InputValidationComponent,
     TextInputComponent,
     InputLoadingComponent,
+    CustomerProfileComponent,
   ],
   imports: [
     BrowserModule,
