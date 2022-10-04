@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 export interface IEvent{
-    eventID: number;
+    eventID: string;
     eventName: string;
     eventDate: string;
     eventLoc: string;

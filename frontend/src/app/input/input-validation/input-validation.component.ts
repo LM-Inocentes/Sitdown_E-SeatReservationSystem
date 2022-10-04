@@ -5,7 +5,8 @@ const VALIDATORS_MESSAGES:any = {
   required:'Should not be empty',
   email:'Email is not valid',
   minlength: 'Field is too short',
-  notMatch: 'Password does not match'
+  notMatch: 'Password does not match',
+  pattern: 'Input should be a number',
 }
 
 @Component({
