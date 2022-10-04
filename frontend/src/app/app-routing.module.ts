@@ -14,7 +14,7 @@ import { AdminEventCreateComponent } from './admin-event-create/admin-event-crea
 import { EventCreationComponent } from './event-creation/event-creation.component';
 
 const routes: Routes = [
-    {path : 'landing-page', component : LandingpageComponent},
+    {path : '', component : LandingpageComponent},
     {path : 'login', component : LoginComponent},
     {path : 'register', component : RegisterComponent},
     {path : 'event-page', component : EventPageComponent},

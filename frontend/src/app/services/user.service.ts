@@ -61,8 +61,6 @@ export class UserService {
     );
   }
 
-  
-
   logout(){
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
@@ -77,6 +75,11 @@ export class UserService {
     const userJson = localStorage.getItem(USER_KEY);
     if(userJson) return JSON.parse(userJson) as User;
     return new User();
+  }
+
+  get isLoggedIn(): boolean {
+    const  userJson = localStorage.getItem(USER_KEY)!;
+    return  userJson !== 'null' ? true : false;
   }
 
 }
