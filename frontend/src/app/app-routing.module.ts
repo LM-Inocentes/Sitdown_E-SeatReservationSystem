@@ -11,6 +11,7 @@ import { CustomerEventListComponent } from './customer-event-list/customer-event
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
 import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
+import { EventCreationComponent } from './event-creation/event-creation.component';
 
 const routes: Routes = [
     {path : 'landing-page', component : LandingpageComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},
     {path : 'admin-event-list', component : AdminEventListComponent},
-    {path : 'admin-event-create', component : AdminEventCreateComponent}
+    {path : 'admin-event-create', component : AdminEventCreateComponent},
+    {path : 'event-creation', component : EventCreationComponent},
   ];
 
 // configures NgModule imports and exports

@@ -31,10 +31,12 @@ router.post("/login",  asyncHandler(
         res.status(HTTP_BAD_REQUEST).send("Email does not exist");
         return;
       }
-      const isPassMatch = await bcrypt.compare(password, user.password); 
+      const isPassMatch = await bcrypt.compare(password, user.password);           
       if(isPassMatch) {
         res.send(generateTokenResponse(user));
       }
+      res.status(HTTP_BAD_REQUEST).send("Incorrect Password");
+      return;
     }
 ))
 
@@ -57,7 +59,7 @@ router.post('/register', asyncHandler(
       password: await bcrypt.hash(password, salt),       //hash and salts the password with bcrypt
       isAdmin: false
     }
-    
+
     const dbUser = await UserModel.create(newUser);  
     res.send(generateTokenResponse(dbUser));
   }
