@@ -12,20 +12,21 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
 import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
+import { AuthGuard } from './services/auth-guard.guard';
 
 const routes: Routes = [
     {path : '', component : LandingpageComponent},
     {path : 'login', component : LoginComponent},
     {path : 'register', component : RegisterComponent},
-    {path : 'event-page', component : EventPageComponent},
-    {path : 'event-list', component : EventListComponent},
-    {path : 'reservation-page', component : ReservationPageComponent},
-    {path : 'customer-event-list', component : CustomerEventListComponent},
-    {path : 'search/:searchTerm', component : CustomerEventListComponent},
-    {path : 'customer-profile', component : CustomerProfileComponent},
-    {path : 'admin-event-list', component : AdminEventListComponent},
-    {path : 'admin-event-create', component : AdminEventCreateComponent},
-    {path : 'event-creation', component : EventCreationComponent},
+    {path : 'event-page', component : EventPageComponent, canActivate: [AuthGuard]},
+    {path : 'event-list', component : EventListComponent , canActivate: [AuthGuard]},
+    {path : 'reservation-page', component : ReservationPageComponent , canActivate: [AuthGuard]},
+    {path : 'customer-event-list', component : CustomerEventListComponent , canActivate: [AuthGuard]},
+    {path : 'search/:searchTerm', component : CustomerEventListComponent , canActivate: [AuthGuard]},
+    {path : 'customer-profile', component : CustomerProfileComponent , canActivate: [AuthGuard]},
+    {path : 'admin-event-list', component : AdminEventListComponent , canActivate: [AuthGuard]},
+    {path : 'admin-event-create', component : AdminEventCreateComponent , canActivate: [AuthGuard]},
+    {path : 'event-creation', component : EventCreationComponent , canActivate: [AuthGuard]},
   ];
 
 // configures NgModule imports and exports
