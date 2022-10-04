@@ -10,6 +10,7 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
+import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 
 const routes: Routes = [
     {path : 'landing-page', component : LandingpageComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path : 'customer-event-list', component : CustomerEventListComponent},
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},
-    {path : 'admin-event-list', component : AdminEventListComponent}
+    {path : 'admin-event-list', component : AdminEventListComponent},
+    {path : 'admin-event-create', component : AdminEventCreateComponent}
   ];
 
 // configures NgModule imports and exports

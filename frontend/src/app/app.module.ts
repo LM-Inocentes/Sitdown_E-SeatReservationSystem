@@ -28,6 +28,7 @@ import { InputLoadingComponent } from './input/input-loading/input-loading.compo
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
+import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AdminEventListComponent } from './admin-event-list/admin-event-list.com
     InputLoadingComponent,
     CustomerProfileComponent,
     AdminEventListComponent,
+    AdminEventCreateComponent,
   ],
   imports: [
     BrowserModule,
