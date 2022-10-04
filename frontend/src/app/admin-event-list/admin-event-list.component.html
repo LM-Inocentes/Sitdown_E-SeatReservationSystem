@@ -1,0 +1,28 @@
+<div class="div-btn">
+    <button class="btn-create" routerLink="/event-create">Create Event</button>
+</div>
+
+<app-search></app-search>
+
+<ul>
+    <li *ngFor="let event of events">
+      <a routerLink="/event/{{event.eventID}}" (click)="sendSelectedEvent(event.eventID)">
+        <img [src]="event.eventImg" [alt]="event.eventName" />
+        <div class="content">
+          <div class="name">
+            {{event.eventName}}
+          </div>
+          <div class="product-item-footer">
+            <div class="info">
+              <span>{{event.eventLoc}}</span>
+              <span>{{event.eventDate}}</span>
+              <span>{{event.eventCost | currency: 'PHP': 'symbol': '1.2-2'}}</span>
+            </div>
+
+          </div>
+  
+
+        </div>
+      </a>
+    </li>
+</ul>

@@ -27,6 +27,7 @@ import { TextInputComponent } from './input/text-input/text-input.component';
 import { InputLoadingComponent } from './input/input-loading/input-loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
     TextInputComponent,
     InputLoadingComponent,
     CustomerProfileComponent,
+    AdminEventListComponent,
   ],
   imports: [
     BrowserModule,
