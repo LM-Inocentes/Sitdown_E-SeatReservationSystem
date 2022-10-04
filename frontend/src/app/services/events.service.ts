@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { IEvent } from '../shared/interfaces/IEvent';
@@ -26,7 +26,9 @@ export class EventsService {
   }
 
   createEvent(eventCreate :IEvent): Observable<EventsInfo>{
+    
     return this.http.post<EventsInfo>(CREATE_EVENTS_URL, eventCreate);
+    
   }
 
 }
