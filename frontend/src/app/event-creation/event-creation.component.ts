@@ -17,6 +17,7 @@ export class EventCreationComponent implements OnInit {
   returnUrl = 'customer-event-list';
   imageData!: string;
 
+
   constructor(private formBuilder:FormBuilder, private eventService: EventsService, 
     private activatedRoute:ActivatedRoute, private router:Router) { }
 
@@ -44,6 +45,7 @@ export class EventCreationComponent implements OnInit {
     
     this.isSubmitted = true;
     if(this.eventForm.invalid) return;
+
     
     const fv= this.eventForm.value;
 
@@ -53,21 +55,34 @@ export class EventCreationComponent implements OnInit {
       eventLoc: fv.eventLoc,
       eventSeatTotal: fv.eventSeatTotal,
       eventSeatCol: fv.eventSeatCol,
-      eventSeatAvail: fv.eventSeatAvail,
+      eventSeatAvail: fv.eventSeatTotal,
       eventCost: fv.eventCost,
       eventAbout: fv.eventAbout,
-      eventImg: "./assets/aurorafest.jpg",
+      eventImg: "",
     };
     console.log(event);
     this.eventService.createEvent(event).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
     })
+
   }
 
-  onFileSelect(event: Event) {
-    //convert img
+  onFileSelect(event: any) {
+    if (!event.target.files) return;
+    const file = (event.target as HTMLInputElement).files![0];
+    this.eventForm.patchValue({ eventImg: file });
+    const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
+    if (file && allowedMimeTypes.includes(file.type)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result as string;
+        console.log(this.imageData);
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
+  
  
 
 

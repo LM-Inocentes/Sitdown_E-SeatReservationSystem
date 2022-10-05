@@ -3,29 +3,10 @@ import { sample_events } from '../data';
 import  asyncHandler  from 'express-async-handler';
 import { EventModel, IEvent } from '../models/event.model';
 import { HTTP_BAD_REQUEST } from '../constants/httpstatus';
-import multer from 'multer';
 
 
 const router = Router();
 
-var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/eventsIMG');
-  },
-  filename: (req, file, cb) => {
-    console.log(file);
-    var filetype = '';
-    if(file.mimetype === 'image/png') {
-      filetype = 'png';
-    }
-    if(file.mimetype === 'image/jpeg') {
-      filetype = 'jpg';
-    }
-    cb(null, file.fieldname + '-' + Date.now())
-    }
-});
-
-var upload = multer({storage: storage});
 
 router.get("/seed", asyncHandler( async (req, res) =>{
     const eventsCount = await EventModel.countDocuments();
