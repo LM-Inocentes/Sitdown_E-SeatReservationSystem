@@ -34,7 +34,7 @@ export class SeatsComponent implements OnInit {
     console.log(this.seats[SeatNo-1]);
   }
   Rowdiv(SeatNo:number){
-    if(SeatNo%10== 1){
+    if(SeatNo%5== 1){
       return true;
     }
     else{
