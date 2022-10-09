@@ -10,5 +10,5 @@ export class EventsInfo{
     eventSeatAvail!: number;
     eventCost!: number;
     eventAbout!: string;
-    eventImg!: string;
+    eventImg!: File;
 }

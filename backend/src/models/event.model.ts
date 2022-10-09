@@ -15,24 +15,17 @@ export interface IEvent{
 
 export const EventSchema = new Schema<IEvent>(
     {
-        eventName: { type:String, requred:true },
-        eventDate: { type:String, requred:true },
-        eventLoc: { type:String, requred:true },
-        eventSeatTotal: { type:Number, requred:true },
-        eventSeatCol: { type:Number, requred:true },
-        eventSeatAvail: { type:Number, requred:true },
-        eventCost: { type:Number, requred:true },
-        eventAbout: { type:String, requred:true },
-        eventImg: { type:String, requred:true },
-    },{
-        toJSON:{
-            virtuals:true
-        },
-        toObject:{
-            virtuals:true
-        },
-        timestamps:true
-    }
+        eventID: { type:String, required:true },
+        eventName: { type:String, required:true },
+        eventDate: { type:String, required:true },
+        eventLoc: { type:String, required:true },
+        eventSeatTotal: { type:Number, required:true },
+        eventSeatCol: { type:Number, required:true },
+        eventSeatAvail: { type:Number, required:true },
+        eventCost: { type:Number, required:true },
+        eventAbout: { type:String, required:true },
+        eventImg: { type:String, required:true },
+    },
 )
 
 export const EventModel = model<IEvent>('events', EventSchema);

@@ -1,12 +1,13 @@
-<div>
+<ul>
     <ng-container  *ngFor = "let seat of seats">
-            <div  *ngIf="Rowdiv(seat.SeatNo, seat.Col)"> </div>
+            <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
                 <button  (click) = "ButtonClick(seat.SeatNo)">
+                    {{seat.SeatNo}}
                     <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "25">
                 </button>     
     </ng-container>
 
-</div>
+</ul>
 
 <div id = "ReservationForm" *ngIf = "isSeatsClicked">
     

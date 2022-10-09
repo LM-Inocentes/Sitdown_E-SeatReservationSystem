@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from '../services/events.service';
 import { IEvent } from '../shared/interfaces/IEvent';
+import { ISeats } from '../shared/interfaces/ISeats';
+import { SeatsInfo } from '../shared/models/SeatsInfo';
 
 
 @Component({
@@ -16,10 +19,12 @@ export class EventCreationComponent implements OnInit {
   isSubmitted = false;
   returnUrl = 'customer-event-list';
   imageData!: string;
+  fileName = '';
+  seats:SeatsInfo[] = [];
 
 
   constructor(private formBuilder:FormBuilder, private eventService: EventsService, 
-    private activatedRoute:ActivatedRoute, private router:Router) { }
+    private activatedRoute:ActivatedRoute, private router:Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.eventForm = this.formBuilder.group({
@@ -31,7 +36,7 @@ export class EventCreationComponent implements OnInit {
       eventSeatAvail: ['',],
       eventCost: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       eventAbout: ['', Validators.required],
-      eventImg: ['',],
+      eventImg: [null,],
     });
   }
 
@@ -46,7 +51,6 @@ export class EventCreationComponent implements OnInit {
     this.isSubmitted = true;
     if(this.eventForm.invalid) return;
 
-    
     const fv= this.eventForm.value;
 
     const event :IEvent = {
@@ -58,13 +62,28 @@ export class EventCreationComponent implements OnInit {
       eventSeatAvail: fv.eventSeatTotal,
       eventCost: fv.eventCost,
       eventAbout: fv.eventAbout,
-      eventImg: "",
+      eventImg: '',
     };
+
     console.log(event);
     this.eventService.createEvent(event).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
     })
 
+    this.initSeats(fv.eventName, fv.eventSeatTotal);
+    
+    for(const seat of this.seats){
+        this.eventService.createSeats(seat).subscribe(_ => this.router.navigateByUrl(this.returnUrl));
+    }
+  }
+
+  initSeats(EventName: string, TotalSeats:number){
+    var pushseats:SeatsInfo;
+   
+    for(let j = 1; j<=TotalSeats; j++){
+        pushseats = {eventName: EventName ,SeatNo: j, isAvailable: true, img:'./assets/Available.png', Name: "", ReservedDate:"", imgPayment:""}; 
+        this.seats.push(pushseats); 
+    }
   }
 
   onFileSelect(event: any) {
@@ -80,11 +99,7 @@ export class EventCreationComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     }
-  }
-
-  
- 
-
+  } 
 
 }
 

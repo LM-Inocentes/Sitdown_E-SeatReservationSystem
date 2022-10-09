@@ -8,6 +8,10 @@ export const EVENTS_URL = BASE_URL + '/api/events-info';
 
 export const CREATE_EVENTS_URL = EVENTS_URL + '/create-event';
 
+export const CREATE_SEATS_URL = EVENTS_URL + '/seats';
+
+export const GET_SEATS_URL = CREATE_SEATS_URL + '/info/';
+
 export const EVENTS_IMG_URL = CREATE_EVENTS_URL + '/img';
 
 export const EVENTS_BY_SEARCH_URL = EVENTS_URL + '/search/';

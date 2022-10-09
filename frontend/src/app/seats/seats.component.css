@@ -3,10 +3,9 @@
 button {
     display: inline-block;
     border: none;
-    padding: .25rem .25rem;
     margin: 0;
     text-decoration: none;
-    background: none ;
+    background-color:none ;
     color: #000000;
     font-family: sans-serif;
     font-size: 1rem;
@@ -14,13 +13,14 @@ button {
     cursor: pointer;
     text-align: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    width: 1.5%;
+    font: small-caps bold 8px cursive;
 }
 
 button:hover,
 button:focus {
-    background: #0053ba;
+    background: rgb(43, 11, 80);
+    color: white;
 }
 
 button:focus {

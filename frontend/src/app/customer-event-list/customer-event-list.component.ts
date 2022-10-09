@@ -21,7 +21,6 @@ export class CustomerEventListComponent implements OnInit {
       else{
         EventsObservable = eventService.getEvents();
       }
-      
     EventsObservable.subscribe((serverEvents) => {
       this.events = serverEvents;
     })

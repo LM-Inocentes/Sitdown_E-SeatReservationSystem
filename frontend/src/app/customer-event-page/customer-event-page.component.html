@@ -1,0 +1,41 @@
+
+<div  class="container">
+  <img [src]="event.eventImg" [alt]="event.eventName"/>
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{event.eventName}}
+      </span>
+    </div>
+
+
+    <div class="about">
+      <span>
+        <strong>{{event.eventAbout}}</strong>
+      </span>
+    </div>
+
+    <div class="origins">
+      <span>
+        Location: {{event.eventLoc}}
+      </span>
+      <span>
+        Date: {{event.eventDate}}
+      </span>
+      <span>
+        Available Seats: {{event.eventSeatAvail}}
+      </span>
+    </div>
+
+
+    <div class="price">
+      <span>
+        {{event.eventCost | currency: 'PHP': 'symbol': '1.2-2'}}
+      </span>
+    </div>
+
+    <button (click)="Reserve()">Reserve Seat</button>
+
+  </div>
+</div>

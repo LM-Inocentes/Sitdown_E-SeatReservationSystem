@@ -10,7 +10,7 @@
             <text-input [control] = "form.eventSeatCol" [showErrorsWhen] = "isSubmitted" label = "Seat Columns"></text-input>
             <text-input [control] = "form.eventCost" [showErrorsWhen] = "isSubmitted" label = "Event Cost"></text-input>
             <label for="file">Event Image</label>
-            <input type="file" accept="image/*" (change)=" onFileSelect($event)">
+            <input type="file" accept="image/*" class="file-input" (change)="onFileSelect($event)">
 
             <input type="submit" name="" value="Create"> 
         </form>

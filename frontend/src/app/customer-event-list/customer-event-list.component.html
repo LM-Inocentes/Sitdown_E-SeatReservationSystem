@@ -2,7 +2,7 @@
 
 <ul>
     <li *ngFor="let event of events">
-      <a routerLink="/event/{{event.eventID}}" (click)="sendSelectedEvent(event.eventID)">
+      <a routerLink="/customer-event-list/{{event.eventID}}">
         <img [src]="event.eventImg" [alt]="event.eventName" />
         <div class="content">
           <div class="name">
@@ -14,10 +14,7 @@
               <span>{{event.eventDate}}</span>
               <span>{{event.eventCost | currency: 'PHP': 'symbol': '1.2-2'}}</span>
             </div>
-
           </div>
-  
-
         </div>
       </a>
     </li>

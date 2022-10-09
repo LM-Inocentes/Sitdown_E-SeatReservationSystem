@@ -13,6 +13,7 @@ import { AdminEventListComponent } from './admin-event-list/admin-event-list.com
 import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { AuthGuard } from './services/auth-guard.guard';
+import { CustomerEventPageComponent } from './customer-event-page/customer-event-page.component';
 
 const routes: Routes = [
     {path : '', component : LandingpageComponent},
@@ -27,6 +28,8 @@ const routes: Routes = [
     {path : 'admin-event-list', component : AdminEventListComponent},
     {path : 'admin-event-create', component : AdminEventCreateComponent},
     {path : 'event-creation', component : EventCreationComponent},
+    {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
+    {path: 'seats', component : SeatsComponent},
   ];
 
 // configures NgModule imports and exports

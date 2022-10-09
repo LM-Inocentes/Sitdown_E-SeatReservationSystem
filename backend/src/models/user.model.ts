@@ -11,11 +11,11 @@ export interface IUser{
 
 export const UserSchema = new Schema<IUser>(
     {
-        Firstname: { type:String, requred:true },
-        Lastname: { type:String, requred:true },
-        email: { type:String, requred:true, unique:true },
-        password: { type:String, requred:true },
-        isAdmin: { type:Boolean, requred:true },
+        Firstname: { type:String, required:true },
+        Lastname: { type:String, required:true },
+        email: { type:String, required:true, unique:true },
+        password: { type:String, required:true },
+        isAdmin: { type:Boolean, required:true },
         
     },{
         toJSON:{
