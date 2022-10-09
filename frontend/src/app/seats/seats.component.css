@@ -1,7 +1,6 @@
 
 
 button {
-    display: inline-block;
     border: none;
     margin: 0;
     text-decoration: none;
@@ -11,9 +10,7 @@ button {
     font-size: 1rem;
     line-height: 1;
     cursor: pointer;
-    text-align: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
-    width: 10%;
     font: small-caps bold 8px cursive;
 }
 
