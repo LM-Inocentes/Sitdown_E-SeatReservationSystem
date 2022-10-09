@@ -21,7 +21,7 @@ const routes: Routes = [
     {path : 'register', component : RegisterComponent},
     {path : 'event-page', component : EventPageComponent},
     {path : 'event-list', component : EventListComponent},
-    {path : 'reservation-page', component : ReservationPageComponent},
+    {path : 'reservation-page/:eventName', component : ReservationPageComponent},
     {path : 'customer-event-list', component : CustomerEventListComponent},
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},

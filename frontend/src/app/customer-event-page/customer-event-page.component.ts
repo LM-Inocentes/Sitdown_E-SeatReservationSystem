@@ -15,12 +15,10 @@ export class CustomerEventPageComponent implements OnInit {
      private router: Router) { 
       
       activatedRoute.params.subscribe((params) => {
-        if(params.eventID)
         eventService.getEventsID(params.eventID).subscribe(serverEvent => {
           this.event = serverEvent;
         });
       })
-      eventService.setCurrentEvent(this.event);
      }
 
   ngOnInit(): void {
