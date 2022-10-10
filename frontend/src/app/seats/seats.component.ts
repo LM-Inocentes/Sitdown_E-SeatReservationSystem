@@ -34,6 +34,8 @@ export class SeatsComponent implements OnInit {
   ButtonClick(SeatNo:number){
     this.isSeatsClicked = true;
     console.log(this.seats[SeatNo-1]);
+    window.open ("http://localhost:4200/",
+"mywindow","menubar=1,resizable=1,width=350,height=250");
   }
   Rowdiv(SeatNo:number){
     if(SeatNo%this.Col== 1){

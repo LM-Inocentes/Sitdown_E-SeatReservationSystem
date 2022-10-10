@@ -29,7 +29,7 @@ const routes: Routes = [
     {path : 'admin-event-create', component : AdminEventCreateComponent},
     {path : 'event-creation', component : EventCreationComponent},
     {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
-    {path: 'seats', component : SeatsComponent},
+    {path: 'seats/:eventID/:eventName/:eventSeatCol', component : SeatsComponent},
   ];
 
 // configures NgModule imports and exports
