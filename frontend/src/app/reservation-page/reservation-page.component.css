@@ -1,11 +1,8 @@
-*{
-  background-color: aqua;
-}
+
 .seats{
   padding-top: 2.5%;
   display: flex;
   width: 1140px;
-  background-color: aqua;
   justify-content: center;
   }
 
