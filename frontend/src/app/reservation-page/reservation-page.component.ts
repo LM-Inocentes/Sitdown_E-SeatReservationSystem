@@ -10,7 +10,6 @@ import { SeatsInfo } from '../shared/models/SeatsInfo';
   styleUrls: ['./reservation-page.component.css']
 })
 export class ReservationPageComponent implements OnInit {
-  seatNo!: number;
 
   constructor(private activatedRoute:ActivatedRoute, private eventService: EventsService) { 
     }
@@ -18,8 +17,5 @@ export class ReservationPageComponent implements OnInit {
   ngOnInit(): void {    
   }
 
-  onSelected(SeatNo: any) {
-    this.seatNo = SeatNo;
-  }
   
 }
