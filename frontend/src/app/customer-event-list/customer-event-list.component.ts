@@ -10,8 +10,9 @@ import { EventsInfo } from '../shared/models/EventsInfo';
   styleUrls: ['./customer-event-list.component.css']
 })
 export class CustomerEventListComponent implements OnInit {
-
+  
   events: EventsInfo[] = [];
+
   constructor(private eventService:EventsService, activatedRoute: ActivatedRoute) { 
     let EventsObservable: Observable<EventsInfo[]>;
     activatedRoute.params.subscribe((params) => {
@@ -29,6 +30,8 @@ export class CustomerEventListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+ 
 
   sendSelectedEvent(eventID: number) 
   {

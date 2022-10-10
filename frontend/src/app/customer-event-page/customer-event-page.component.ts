@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-event-page',
@@ -10,19 +11,20 @@ import { EventsService } from '../services/events.service';
 })
 export class CustomerEventPageComponent implements OnInit {
   event!: EventsInfo;
+
   
-  constructor(activatedRoute:ActivatedRoute, eventService: EventsService,
+  constructor(private activatedRoute:ActivatedRoute, private eventService: EventsService,
      private router: Router) { 
-      
-      activatedRoute.params.subscribe((params) => {
-        eventService.getEventsID(params.eventID).subscribe(serverEvent => {
-          this.event = serverEvent;
-        });
-      })
      }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+        this.eventService.getEventsID(params.eventID).subscribe(serverEvent => {
+        this.event = serverEvent;
+      });
+    })
   }
+
 
   Reserve(){
     this.router.navigateByUrl('/reservation-page');

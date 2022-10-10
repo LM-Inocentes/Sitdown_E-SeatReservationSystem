@@ -15,18 +15,20 @@ export class SeatsComponent implements OnInit {
 
   isSeatsClicked: boolean = false;
   seats:SeatsInfo[] = [];
+  Col!:number;
 
   constructor( activatedRoute:ActivatedRoute, eventService: EventsService,
     private router: Router) { 
     activatedRoute.params.subscribe((params) => {
-      eventService.getSeats(params.eventName).subscribe(serverEvent => {
-        this.seats = serverEvent;
+      eventService.getSeats(params.eventName).subscribe(serverSeats => {
+        this.seats = serverSeats;
+        this.Col = params.eventSeatCol;
       });
     })
+    
   }
 
   ngOnInit(): void {
-
   }
 
   ButtonClick(SeatNo:number){
@@ -34,7 +36,7 @@ export class SeatsComponent implements OnInit {
     console.log(this.seats[SeatNo-1]);
   }
   Rowdiv(SeatNo:number){
-    if(SeatNo%5== 1){
+    if(SeatNo%this.Col== 1){
       return true;
     }
     else{
