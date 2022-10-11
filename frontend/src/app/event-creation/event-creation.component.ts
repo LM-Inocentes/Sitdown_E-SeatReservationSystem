@@ -19,7 +19,6 @@ export class EventCreationComponent implements OnInit {
   isSubmitted = false;
   returnUrl = 'customer-event-list';
   imageData!: string;
-  fileName = '';
   seats:SeatsInfo[] = [];
 
 

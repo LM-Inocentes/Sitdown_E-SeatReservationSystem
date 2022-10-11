@@ -1,26 +1,18 @@
-<div>
-  <title>Login Form Design</title> 
+
+    <div class="loginbox">
+        <h1>Create</h1>
+        <form [formGroup]="reservationForm"  (ngSubmit)="submit()">
+            <text-input [control] = "form.Name" [showErrorsWhen] = "isSubmitted" label = "Name"></text-input>
+            <text-input type="date" [control] = "form.date" [showErrorsWhen] = "isSubmitted" label = "Date"></text-input>
+            <text-input [control] = "form.cost" [showErrorsWhen] = "isSubmitted" label = "Cost"></text-input>
+            <label for="file">Payment Screenshot</label>
+            <input type="file" accept="image/*" class="file-input" (change)="onFileSelect($event)">
+
+            <input type="submit" name="" value="Reserve"> 
+        </form>
     
-  <body>
-      <div class="reservationbox">
-          <h1>Seat #</h1>
-          <form  action="/event-page">
-              <p>Name</p>
-              <input type="name"  formControlName="name">
-              <p>Date</p>
-              <input type="date" formControlName="date">
-              <p>Cost</p>
-              <div type="cost" formControlName="cost">
-                {{ cost |currency:'PHP'}}
-              </div>
-              <p>Payment Screenshot</p>
-              <input type="file" class="pt-3" (change)="onFileSelected($event)" >
-              <input type="submit"  value="SIGN IN">
-              <a href="/sign-up">Don't have an account? Sign up now</a>  
-          </form>
-      
-      </div>
-  </body>
-</div>
+    </div>
+
+
 
 

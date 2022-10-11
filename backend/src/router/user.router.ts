@@ -65,6 +65,13 @@ router.post('/register', asyncHandler(
   }
 ))
 
+router.get("/:email", asyncHandler(
+  async (req, res) => {
+    const user = await UserModel.findOne({ email: req.params.email });
+    res.send(user);
+  }
+))
+
 
 
 const generateTokenResponse = (user:any) => {
