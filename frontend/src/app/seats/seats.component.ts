@@ -28,12 +28,12 @@ export class SeatsComponent implements OnInit {
       eventService.getSeats(params.eventName).subscribe(serverSeats => {
         this.seats = serverSeats;
         this.Col = params.eventSeatCol;
+        console.log(this.seats);
       });
     })
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
       this.isAdmin = this.user.isAdmin;
-      console.log(this.isAdmin );
     });
     
   }
@@ -41,13 +41,13 @@ export class SeatsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.isAdmin );
     console.log(this.user);
+    console.log(this.user.Firstname);
   }
 
   ButtonClick(SeatNo:number){
     this.isSeatsClicked = true;
     console.log(this.seats[SeatNo-1]);
-    window.open ("http://localhost:4200/reservation-form/"+SeatNo.toString()+"/"+SeatNo.toString(),
-"mywindow","menubar=no,width=350,height=800");
+
   }
 
   Rowdiv(SeatNo:number){

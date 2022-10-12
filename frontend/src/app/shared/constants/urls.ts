@@ -22,3 +22,5 @@ export const EVENTS_BY_SEARCH_URL = EVENTS_URL + '/search/';
 
 export const EVENTS_ID_URL = EVENTS_URL + '/';
 
+export const RESERVATIONS_URL = BASE_URL + '/api/reservations/';
+
