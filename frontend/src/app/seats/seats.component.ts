@@ -15,39 +15,21 @@ import { User } from '../shared/models/User';
   styleUrls: ['./seats.component.css']
 })
 export class SeatsComponent implements OnInit {
-
-  user!:User;
-  isSeatsClicked: boolean = false;
   seats:SeatsInfo[] = [];
+  eventName!: string;
   Col!:number;
-  isAdmin: boolean = true;
 
-  constructor( activatedRoute:ActivatedRoute, eventService: EventsService,
-    private router: Router, private userService:UserService) { 
+  constructor( activatedRoute:ActivatedRoute, eventService: EventsService) { 
     activatedRoute.params.subscribe((params) => {
       eventService.getSeats(params.eventName).subscribe(serverSeats => {
         this.seats = serverSeats;
         this.Col = params.eventSeatCol;
-        console.log(this.seats);
+        this.eventName = params.eventName;
       });
-    })
-    userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
-      this.isAdmin = this.user.isAdmin;
-    });
-    
+    }) 
   }
 
   ngOnInit(): void {
-    console.log(this.isAdmin );
-    console.log(this.user);
-    console.log(this.user.Firstname);
-  }
-
-  ButtonClick(SeatNo:number){
-    this.isSeatsClicked = true;
-    console.log(this.seats[SeatNo-1]);
-
   }
 
   Rowdiv(SeatNo:number){

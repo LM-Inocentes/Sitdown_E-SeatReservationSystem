@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { EventsService } from '../services/events.service';
 import { IEvent } from '../shared/interfaces/IEvent';
-import { ISeats } from '../shared/interfaces/ISeats';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
 
 
@@ -22,8 +21,7 @@ export class EventCreationComponent implements OnInit {
   seats:SeatsInfo[] = [];
 
 
-  constructor(private formBuilder:FormBuilder, private eventService: EventsService, 
-    private activatedRoute:ActivatedRoute, private router:Router, private http: HttpClient) { }
+  constructor(private formBuilder:FormBuilder, private eventService: EventsService, private router:Router) { }
 
   ngOnInit(): void {
     this.eventForm = this.formBuilder.group({

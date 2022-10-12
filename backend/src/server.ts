@@ -21,7 +21,7 @@ app.use(cors({
 
 app.use("/api/events-info", eventsRouter);
 app.use("/api/users/", userRouter);
-app.use("/api/reservations/", reservationsRouter);
+app.use("/api/reservations", reservationsRouter);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

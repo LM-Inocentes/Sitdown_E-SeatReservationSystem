@@ -102,8 +102,19 @@ const router = Router();
 
   router.get("/seats/info/:eventName/:SeatNo", asyncHandler(
     async (req, res) =>{
-      const seats = await SeatModel.findOne({ eventName: req.params.eventName, SeatNo: req.params.SeatNo });
-      res.send(seats);                    
+      const seat = await SeatModel.findOne({ eventName: req.params.eventName, SeatNo: req.params.SeatNo });
+      res.send(seat);                    
+    }
+  ))
+
+  router.patch("/seats/update", asyncHandler(
+    async (req, res) =>{
+      const {eventName, SeatNo, isAvailable, img, Name, ReservedDate, imgPayment} = req.body;
+      const seat = await SeatModel.findOne({ eventName: eventName, SeatNo: SeatNo });
+      const updateSeat = await seat!.updateOne({ $set: { "eventName": eventName, "SeatNo": SeatNo,
+      "isAvailable": isAvailable,"img": img, "Name": Name,"ReservedDate": ReservedDate,"imgPayment": imgPayment } });
+      console
+      res.send(updateSeat);                    
     }
   ))
 

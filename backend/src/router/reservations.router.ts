@@ -9,7 +9,7 @@ const router = Router();
 
 router.post('/createReservations', asyncHandler(
     async (req, res) => {
-      const {userEmail, eventName, seatNo, Name, date, cost, paymentImg} = req.body;
+      const {userEmail, eventName, seatNo, Name, date, cost} = req.body;
 
       const imagePath = "./assets/aurorafest.jpg" ;
 
@@ -24,6 +24,7 @@ router.post('/createReservations', asyncHandler(
         paymentImg: imagePath
       };
     const dbReservation = await ReservationsModel.create(Reservation); 
+    console.log(dbReservation);
     res.send(dbReservation);                             
   }
   ))
@@ -39,7 +40,7 @@ router.get("/", asyncHandler(
 
 router.get("/:userEmail", asyncHandler(
     async (req, res) => {
-        const event = await ReservationsModel.findOne({ userEmail: req.params.userEmail });
+        const event = await ReservationsModel.find({ userEmail: req.params.userEmail });
         res.send(event);
       }
     ))

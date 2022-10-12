@@ -18,7 +18,7 @@ export const ReservationsSchema = new Schema<IReservations>(
         Name: { type:String, required:true },
         date: { type:String, required:true },
         cost: { type:Number, required:true },
-        paymentImg: { type:String, required:true },
+        paymentImg: String
     },
 )
 

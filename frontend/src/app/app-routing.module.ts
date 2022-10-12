@@ -22,7 +22,6 @@ const routes: Routes = [
     {path : 'register', component : RegisterComponent},
     {path : 'event-page', component : EventPageComponent},
     {path : 'event-list', component : EventListComponent},
-    {path : 'reservation-form', component : ReservationFormComponent},
     {path : 'customer-event-list', component : CustomerEventListComponent},
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},
@@ -30,7 +29,8 @@ const routes: Routes = [
     {path : 'admin-event-create', component : AdminEventCreateComponent},
     {path : 'event-creation', component : EventCreationComponent},
     {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
-    {path: 'seats/:eventID/:eventName/:eventSeatCol', component : SeatsComponent},
+    {path: 'seats/:eventName/:eventSeatCol', component : SeatsComponent},
+    {path : 'reservation/:eventName/:SeatNo/:Col', component : ReservationFormComponent},
   ];
 
 // configures NgModule imports and exports
