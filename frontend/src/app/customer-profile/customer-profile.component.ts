@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class CustomerProfileComponent implements OnInit {
 
   events: EventsInfo[] = [];
+  showImage = true;
 
   constructor(private eventService: EventsService) { 
     let EventsObservable: Observable<EventsInfo[]>;
@@ -24,7 +25,7 @@ export class CustomerProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showImage = true;
+  
 
   toggleImage(): void {
     this.showImage = !this.showImage;
