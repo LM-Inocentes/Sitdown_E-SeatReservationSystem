@@ -1,6 +1,6 @@
 <body>
     <h2>Reservations</h2>
-    <table class='res-table' *ngIf='events && events.length'>
+    <table class='res-table' *ngIf='userReservations && userReservations.length'>
         <thead>
         <tr>
             <th class="event-img">
@@ -12,22 +12,24 @@
             <th>Event</th>
             <th>Date</th>
             <th>Name</th>
-            <th>Seat Number</th>
+            <th>Seat #</th>
+            <th>Payment Img</th>
             <th>Status</th>
             <th>Generated Ticket ID</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let event of events'>
+        <tr *ngFor='let reservation of userReservations'>
             <td>
                 <img *ngIf='showImage'
-                     [src]='event.eventImg'
-                     [title]='event.eventName'>
+                     src="./assets/aurorafest.jpg"
+                     [title]='reservation.eventName'>
             </td>
-            <td><a (click)="sendSelectedEvent(event.eventID)" href="./event-page">{{ event.eventName }}</a></td>
-            <td>{{ event.eventDate }}</td>
-            <td>[insert name here]</td>
-            <td>[insert seat number here]</td>
+            <td><a></a>{{reservation.eventName}}</td>
+            <td>{{ reservation.date }}</td>
+            <td>{{ reservation.Name }}</td>
+            <td>{{ reservation.seatNo }}</td>
+            <td>{{ reservation.paymentImg }}</td>
             <td>[Pending/Approved/Cancelled]</td>
             <td>[insert ticket ID]</td>
         </tr>

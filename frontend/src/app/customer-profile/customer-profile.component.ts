@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
 import { Observable } from 'rxjs';
+import { ReservationsService } from '../services/reservations.service';
+import { UserService } from '../services/user.service';
+import { User } from '../shared/models/User';
+import { Reservations } from '../shared/models/Reservations';
 
 @Component({
   selector: 'app-customer-profile',
@@ -10,16 +14,18 @@ import { Observable } from 'rxjs';
 })
 export class CustomerProfileComponent implements OnInit {
 
+  user!:User;
   events: EventsInfo[] = [];
+  userReservations: Reservations[] = [];
   showImage = true;
 
-  constructor(private eventService: EventsService) { 
-    let EventsObservable: Observable<EventsInfo[]>;
-    
-    EventsObservable = eventService.getEvents();
-    EventsObservable.subscribe((serverEvents) => {
-      this.events = serverEvents;
-    })
+  constructor(eventService: EventsService, reservationService: ReservationsService, userService:UserService) { 
+    userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+    });
+    reservationService.getUserReservations(this.user.email).subscribe(serverReservations => {
+      this.userReservations = serverReservations;
+    });
   }
 
   ngOnInit(): void {
