@@ -60,7 +60,7 @@ router.patch("/update/reject", asyncHandler(
   async (req, res) => {
     const {userEmail, eventName, seatNo} = req.body;
     const reservation = await ReservationsModel.findOne({ userEmail: userEmail, eventName: eventName, seatNo: seatNo });
-    const updateReservation = await reservation!.updateOne({ $set: { "isApproved": "Rejected" } });
+    const updateReservation = await reservation!.updateOne({ $set: { "isApproved": "Rejected", "TicketID": "none" } });
     res.send(updateReservation);                    
   }
 ))
