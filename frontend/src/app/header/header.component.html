@@ -4,11 +4,11 @@
       <a routerLink="/" class="logo">Sitdown Software</a>
       <nav>
         <ul>
-          <li *ngIf="!isAuth">
-            <a routerLink="/login">Login</a>
-          </li>
           <li>
             <a routerLink="/customer-event-list">Events</a>
+          </li>
+          <li *ngIf="!isAuth">
+            <a routerLink="/login">Login</a>
           </li>
           <li *ngIf="isAuth" class="menu-container">
             <a>{{user.Firstname}}</a>

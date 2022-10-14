@@ -24,7 +24,6 @@ router.post('/createReservations', asyncHandler(
         paymentImg: imagePath
       };
     const dbReservation = await ReservationsModel.create(Reservation); 
-    console.log(dbReservation);
     res.send(dbReservation);                             
   }
   ))

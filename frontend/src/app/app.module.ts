@@ -11,8 +11,6 @@ import { SeatsComponent } from './seats/seats.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
-import { EventPageComponent } from './event-page/event-page.component';
-import { EventListComponent } from './event-list/event-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -39,10 +37,8 @@ import { CustomerEventPageComponent } from './customer-event-page/customer-event
     LandingpageComponent,
     RegisterComponent,
     ReservationFormComponent,
-    EventPageComponent,
     ReservationPageComponent,
     FileUploadComponent,
-    EventListComponent,
     AdminPageComponent,
     EventCreationComponent,
     HeaderComponent,
