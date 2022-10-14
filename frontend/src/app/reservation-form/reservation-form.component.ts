@@ -74,8 +74,6 @@ export class ReservationFormComponent implements OnInit {
       TicketID: ''
     };
 
-    console.log(reservations);
-
     this.reservationService.createReservation(reservations)
     .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
 
@@ -88,7 +86,7 @@ export class ReservationFormComponent implements OnInit {
       ReservedDate: fv.date,
       imgPayment: "",
     };
-    console.log(seat);
+
     this.eventService.updateSeat(seat)
     .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
   }

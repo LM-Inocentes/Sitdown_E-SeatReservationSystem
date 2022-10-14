@@ -18,12 +18,13 @@ export class ReservationsService {
   }
 
   getUserReservations(userEmail:string): Observable<Reservations[]>{
-    console.log(this.http.get<Reservations[]>(RESERVATIONS_URL + userEmail));
     return this.http.get<Reservations[]>(RESERVATIONS_URL + userEmail);
   }
 
   createReservation(reservation: IReservations): Observable<Reservations>{
     return this.http.post<Reservations>(CREATE_RESERVATIONS_URL, reservation);
   }
+
+
 
 }
