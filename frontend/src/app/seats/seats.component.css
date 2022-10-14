@@ -28,4 +28,11 @@ button:active {
     transform: scale(0.99);
 }
 
+.message{
+    color: rgb(43, 11, 80);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    padding-top: 100px;
+}
 

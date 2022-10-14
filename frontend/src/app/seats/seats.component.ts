@@ -3,7 +3,7 @@ import { SeatsInfoService } from 'src/app/services/seats-info.service';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
 import { EventsService } from '../services/events.service';
 import { EventsInfo } from '../shared/models/EventsInfo';
-import { Observable } from 'rxjs';
+import { isEmpty, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/models/User';
@@ -18,8 +18,10 @@ export class SeatsComponent implements OnInit {
   seats:SeatsInfo[] = [];
   eventName!: string;
   Col!:number;
+  user = {} as User;
+  isAuth:boolean = this.userService.isAuthenticated();
 
-  constructor( activatedRoute:ActivatedRoute, eventService: EventsService) { 
+  constructor( activatedRoute:ActivatedRoute, eventService: EventsService, private userService: UserService) { 
     activatedRoute.params.subscribe((params) => {
       eventService.getSeats(params.eventName).subscribe(serverSeats => {
         this.seats = serverSeats;
@@ -27,9 +29,14 @@ export class SeatsComponent implements OnInit {
         this.eventName = params.eventName;
       });
     }) 
+    userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+    });
+    
   }
 
   ngOnInit(): void {
+    console.log(this.isAuth);
   }
 
   Rowdiv(SeatNo:number){

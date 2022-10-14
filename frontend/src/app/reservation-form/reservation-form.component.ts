@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from '../services/events.service';
 import { IReservations } from '../shared/interfaces/IReservations';
 import { User } from '../shared/models/User';
-import { Location } from '@angular/common'
 import { SeatsInfo } from '../shared/models/SeatsInfo';
 import { UserService } from '../services/user.service';
 import { ISeats } from '../shared/interfaces/ISeats';
@@ -20,19 +19,17 @@ import { EventsInfo } from '../shared/models/EventsInfo';
 export class ReservationFormComponent implements OnInit {
 
   user!:User;
-  isAdmin!: boolean;
   reservationForm!:FormGroup;
   isSubmitted = false;
   seat = {} as SeatsInfo;
   event = {} as EventsInfo;
   returnUrl!: string;
 
-  constructor(private formBuilder:FormBuilder, activatedRoute:ActivatedRoute, private location: Location, 
-    userService:UserService, private reservationService: ReservationsService, private eventService:EventsService, private router:Router) { 
+  constructor(private formBuilder:FormBuilder, activatedRoute:ActivatedRoute, userService:UserService, 
+    private reservationService: ReservationsService, private eventService:EventsService, private router:Router) { 
       
       userService.userObservable.subscribe((newUser) => {
         this.user = newUser;
-        this.isAdmin = this.user.isAdmin;
       });
 
       activatedRoute.params.subscribe((params) => {
@@ -71,7 +68,7 @@ export class ReservationFormComponent implements OnInit {
       seatNo: this.seat.SeatNo,
       Name: fv.Name,
       date: fv.date,
-      cost: 100,
+      cost: this.event.eventCost,
       paymentImg: '',
       isApproved: false,
       TicketID: ''

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { GET_SEATS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
@@ -16,7 +17,7 @@ export class UserService {
   public userObservable: Observable<User>;
   private isLoggedIn = false;
 
-  constructor(private http:HttpClient, private toastrService: ToastrService) { 
+  constructor(private http:HttpClient, private toastrService: ToastrService, private router: Router) { 
     this.userObservable = this.userSubject.asObservable();
   }
 
@@ -72,7 +73,7 @@ export class UserService {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     this.isLoggedIn = false;
-    window.location.reload();
+    this.router.navigateByUrl('/');
   }
 
   setUserToLocalStorage(user:User){

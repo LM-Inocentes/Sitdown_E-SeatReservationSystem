@@ -1,12 +1,37 @@
-<div align="center">
+<div align="center" *ngIf = "!user.isAdmin && isAuth">
     <ng-container  *ngFor = "let seat of seats">
             <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
-                <button routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}">
+                <button *ngIf = "seat.isAvailable; else elseBlock" routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}">
                     {{seat.SeatNo}}
                     <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "30">
                 </button>     
+                <ng-template #elseBlock>
+                    <button>
+                        {{seat.SeatNo}}
+                        <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "30">
+                    </button>   
+                </ng-template>      
     </ng-container>
+</div>
 
+<div align="center" *ngIf = "user.isAdmin && isAuth">
+    <ng-container  *ngFor = "let seat of seats">
+            <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
+                <button *ngIf = "seat.isAvailable; else elseBlock" routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}">
+                    {{seat.SeatNo}}
+                    <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "30">
+                </button>     
+                <ng-template #elseBlock>
+                    <button routerLink="/">
+                        {{seat.SeatNo}}
+                        <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "30">
+                    </button>   
+                </ng-template>      
+    </ng-container>
+</div>
+
+<div class="message" align="center" *ngIf = "!isAuth">
+    Please Login to Continue
 </div>
 
 

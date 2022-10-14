@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl; //?returnUrl=/checkout
   }
     //loginforms.controls.email
     //form.email
