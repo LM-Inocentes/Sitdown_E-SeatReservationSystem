@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -70,8 +70,8 @@ export class ReservationFormComponent implements OnInit {
       date: fv.date,
       cost: this.event.eventCost,
       paymentImg: '',
-      isApproved: false,
-      TicketID: ''
+      isApproved: "Pending",
+      TicketID: "none"
     };
 
     this.reservationService.createReservation(reservations)

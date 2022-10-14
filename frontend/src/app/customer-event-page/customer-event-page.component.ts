@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
 import { Subscription } from 'rxjs';
+import { UserService } from '../services/user.service';
+import { User } from '../shared/models/User';
+import { SeatsInfo } from '../shared/models/SeatsInfo';
 
 @Component({
   selector: 'app-customer-event-page',
@@ -11,13 +14,16 @@ import { Subscription } from 'rxjs';
 })
 export class CustomerEventPageComponent implements OnInit {
   event = {} as EventsInfo;
-
+  user!:User;
   
   constructor(private activatedRoute:ActivatedRoute, private eventService: EventsService,
-     private router: Router) { 
+     private router: Router, private userService: UserService) { 
      }
 
   ngOnInit(): void {
+    this.userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+    });
     this.activatedRoute.params.subscribe((params) => {
         this.eventService.getEventsID(params.eventID).subscribe(serverEvent => {
         this.event = serverEvent;
@@ -26,8 +32,12 @@ export class CustomerEventPageComponent implements OnInit {
   }
 
 
-  Reserve(){
-    this.router.navigateByUrl('/reservation-page');
+  eventDelete(){
+    this.eventService.deleteEvent(this.event.eventID)
+      .subscribe(_ => this.router.navigateByUrl('/customer-event-list'));
+
+    this.eventService.deleteSeats(this.event.eventName)
+      .subscribe(_ => this.router.navigateByUrl('/customer-event-list'))
   }
 
 }

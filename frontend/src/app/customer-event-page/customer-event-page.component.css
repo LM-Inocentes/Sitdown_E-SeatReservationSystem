@@ -84,6 +84,7 @@
     padding: 1rem;
     border-radius: 10rem;
     outline: none;
+    margin-top: 1rem;
   }
   
   button:hover{

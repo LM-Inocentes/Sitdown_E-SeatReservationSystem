@@ -14,6 +14,7 @@ button {
 }
 
 button:hover,
+
 button:focus {
     background: rgb(43, 11, 80);
     color: white;
@@ -27,6 +28,8 @@ button:focus {
 button:active {
     transform: scale(0.99);
 }
+
+
 
 .message{
     color: rgb(43, 11, 80);

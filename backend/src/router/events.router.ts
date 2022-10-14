@@ -81,6 +81,15 @@ const router = Router();
   }
   ))
 
+  router.delete("/delete-event/:eventID", asyncHandler(
+    async (req, res) => {
+      const Event = await EventModel.findOne({ eventID: req.params.eventID });
+      await Event!.delete(); 
+      console.log(Event);
+      res.send();
+    }
+  ))
+
   router.post('/seats', asyncHandler(
     async (req, res) => {
     const {eventName, SeatNo, isAvailable} = req.body;
@@ -114,13 +123,39 @@ const router = Router();
     }
   ))
 
+  router.delete("/seats/delete/:eventName", asyncHandler(
+    async (req, res) => {
+      const Event = await SeatModel.deleteMany( { "eventName" : req.params.eventName } );
+      console.log(Event);
+      res.send();
+    }
+  ))
+
   router.patch("/seats/update", asyncHandler(
     async (req, res) =>{
       const {eventName, SeatNo, isAvailable, img, Name, ReservedDate, imgPayment} = req.body;
       const seat = await SeatModel.findOne({ eventName: eventName, SeatNo: SeatNo });
       const updateSeat = await seat!.updateOne({ $set: { "eventName": eventName, "SeatNo": SeatNo,
       "isAvailable": isAvailable,"img": img, "Name": Name,"ReservedDate": ReservedDate,"imgPayment": imgPayment } });
-      console
+      res.send(updateSeat);                    
+    }
+  ))
+
+  router.patch("/seats/admin/approve", asyncHandler(
+    async (req, res) =>{
+      const {eventName, seatNo} = req.body;
+      const seat = await SeatModel.findOne({ eventName: eventName, SeatNo: seatNo });
+      const updateSeat = await seat!.updateOne({ $set: { "img": "./assets/Occupied.png" } });
+      res.send(updateSeat);                    
+    }
+  ))
+
+  router.patch("/seats/admin/reject", asyncHandler(
+    async (req, res) =>{
+      const {eventName, seatNo} = req.body;
+      const seat = await SeatModel.findOne({ eventName: eventName, SeatNo: seatNo });
+      const updateSeat = await seat!.updateOne({ $set: { "isAvailable": true, "img": "./assets/Available.png", "Name": "",
+      "ReservedDate": "","imgPayment": "" } });
       res.send(updateSeat);                    
     }
   ))

@@ -1,5 +1,11 @@
 <app-search></app-search>
 
+<div *ngIf = "user.isAdmin">
+  <button routerLink="/event-creation">
+    Create Event
+  </button>
+</div>
+
 <ul>
     <li *ngFor="let event of events">
       <a routerLink="/customer-event-list/{{event.eventID}}">

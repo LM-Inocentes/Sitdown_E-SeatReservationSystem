@@ -1,6 +1,6 @@
 
     <div class="loginbox">
-        <h1>Seat # {{seat.SeatNo}}</h1>
+        <h1>Seat #{{seat.SeatNo}}</h1>
         <form [formGroup]="reservationForm"  (ngSubmit)="submit()">
             <text-input [control] = "form.Name" [showErrorsWhen] = "isSubmitted" label = "Name"></text-input>
             <text-input type="date" [control] = "form.date" [showErrorsWhen] = "isSubmitted" label = "Date"></text-input>

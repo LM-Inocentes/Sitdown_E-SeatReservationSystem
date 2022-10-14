@@ -51,7 +51,7 @@ import { CustomerEventPageComponent } from './customer-event-page/customer-event
     CustomerProfileComponent,
     AdminEventListComponent,
     AdminEventCreateComponent,
-    CustomerEventPageComponent,
+    CustomerEventPageComponent
   ],
   imports: [
     BrowserModule,

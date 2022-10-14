@@ -10,9 +10,10 @@
                 </button>
             </th>
             <th>Event</th>
-            <th>Date</th>
-            <th>Name</th>
             <th>Seat #</th>
+            <th *ngIf="user.isAdmin">Email</th>
+            <th>Name</th>
+            <th>Date</th>
             <th>Payment Img</th>
             <th>Status</th>
             <th>Generated Ticket ID</th>
@@ -25,13 +26,26 @@
                      src="./assets/aurorafest.jpg"
                      [title]='reservation.eventName'>
             </td>
-            <td><a></a>{{reservation.eventName}}</td>
-            <td>{{ reservation.date }}</td>
-            <td>{{ reservation.Name }}</td>
+            <td>{{reservation.eventName}}</td>
             <td>{{ reservation.seatNo }}</td>
+            <td *ngIf="user.isAdmin">{{reservation.userEmail}}</td>
+            <td>{{ reservation.Name }}</td>
+            <td>{{ reservation.date }}</td>
             <td>{{ reservation.paymentImg }}</td>
-            <td>[Pending/Approved/Cancelled]</td>
-            <td>[insert ticket ID]</td>
+            <td *ngIf="user.isAdmin; else elseBlock">   
+                <button (click)="Approve(reservation)">
+                    Approve
+                </button>
+                <button (click)="Reject(reservation)">
+                    Reject
+                </button>
+            </td>
+            <ng-template #elseBlock>
+                <td>
+                    {{reservation.isApproved}}
+                </td>
+            </ng-template>
+            <td>{{reservation.TicketID}}</td>
         </tr>
         </tbody>
     </table>

@@ -37,6 +37,7 @@
     </div>
 
     <button routerLink="/seats/{{event.eventName}}/{{event.eventSeatCol}}" >Reserve Seat</button>
+    <button *ngIf="user.isAdmin" (click) = eventDelete() >Delete Event</button>
 
   </div>
 

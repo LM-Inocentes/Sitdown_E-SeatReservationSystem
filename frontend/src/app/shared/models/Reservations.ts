@@ -6,6 +6,6 @@ export class Reservations{
     date!: string;
     cost!: number;
     paymentImg!: string;
-    isApproved!: boolean;
+    isApproved!: string;
     TicketID!: string;
 }

@@ -4,7 +4,6 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { LoginComponent } from './login/login.component';
 import { SeatsComponent } from './seats/seats.component';
 import { RegisterComponent } from './register/register';
-import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
