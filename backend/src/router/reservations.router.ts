@@ -50,7 +50,7 @@ router.patch("/update/approve", asyncHandler(
     async (req, res) => {
       const {userEmail, eventName, seatNo} = req.body;
       const reservation = await ReservationsModel.findOne({ userEmail: userEmail, eventName: eventName, seatNo: seatNo });
-      const TicketID = crypto.randomBytes(15).toString('hex');
+      const TicketID = crypto.randomBytes(10).toString('hex');
       const updateReservation = await reservation!.updateOne({ $set: { "isApproved": "Approved", "TicketID": TicketID } });
       res.send(updateReservation);                    
     }

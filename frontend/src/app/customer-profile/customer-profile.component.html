@@ -32,7 +32,7 @@
             <td>{{ reservation.Name }}</td>
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.paymentImg }}</td>
-            <td *ngIf="user.isAdmin; else elseBlock">   
+            <td *ngIf="user.isAdmin && reservation.isApproved === pending; else elseBlock">   
                 <button (click)="Approve(reservation)">
                     Approve
                 </button>

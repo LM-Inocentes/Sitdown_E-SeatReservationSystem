@@ -18,6 +18,7 @@ export class CustomerProfileComponent implements OnInit {
   user!:User;
   userReservations: Reservations[] = [];
   showImage = true;
+  pending: string = "Pending";
 
   constructor(private eventService: EventsService, private reservationService: ReservationsService, userService:UserService) { 
     userService.userObservable.subscribe((newUser) => {
