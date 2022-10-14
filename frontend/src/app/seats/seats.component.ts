@@ -36,7 +36,6 @@ export class SeatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.isAuth);
   }
 
   Rowdiv(SeatNo:number){

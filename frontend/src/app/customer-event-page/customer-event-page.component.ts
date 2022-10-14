@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./customer-event-page.component.css']
 })
 export class CustomerEventPageComponent implements OnInit {
-  event!: EventsInfo;
+  event = {} as EventsInfo;
 
   
   constructor(private activatedRoute:ActivatedRoute, private eventService: EventsService,
