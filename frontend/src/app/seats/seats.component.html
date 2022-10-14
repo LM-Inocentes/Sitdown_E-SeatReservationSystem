@@ -1,7 +1,7 @@
 <div align="center">
     <ng-container  *ngFor = "let seat of seats">
             <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
-                <button routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}/{{Col}}">
+                <button routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}">
                     {{seat.SeatNo}}
                     <img  [id] = "seat.SeatNo" [alt] = "seat.SeatNo" [src] = "seat.img" width = "30">
                 </button>     

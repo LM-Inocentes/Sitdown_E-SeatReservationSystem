@@ -6,4 +6,6 @@ export interface IReservations{
     date: string,
     cost: number,
     paymentImg: string;
+    isApproved: boolean;
+    TicketID: string;
 }

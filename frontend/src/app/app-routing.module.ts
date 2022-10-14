@@ -26,7 +26,7 @@ const routes: Routes = [
     {path : 'event-creation', component : EventCreationComponent},
     {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
     {path: 'seats/:eventName/:eventSeatCol', component : SeatsComponent},
-    {path : 'reservation/:eventName/:SeatNo/:Col', component : ReservationFormComponent},
+    {path : 'reservation/:eventName/:SeatNo', component : ReservationFormComponent},
   ];
 
 // configures NgModule imports and exports

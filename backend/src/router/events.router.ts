@@ -42,6 +42,13 @@ const router = Router();
     }
   ))
 
+  router.get("/get/:eventName", asyncHandler(
+    async (req, res) => {
+      const event = await EventModel.findOne({ eventName: req.params.eventName });
+      res.send(event);
+    }
+  ))
+
   router.post('/create-event', asyncHandler(
     async (req, res) => {
       const {eventName, eventDate, eventLoc, eventSeatTotal, eventSeatCol, eventSeatAvail, eventCost, eventAbout} = req.body;

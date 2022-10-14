@@ -9,7 +9,7 @@ const router = Router();
 
 router.post('/createReservations', asyncHandler(
     async (req, res) => {
-      const {userEmail, eventName, seatNo, Name, date, cost} = req.body;
+      const {userEmail, eventName, seatNo, Name, date, cost, isApproved, TicketID} = req.body;
 
       const imagePath = "./assets/aurorafest.jpg" ;
 
@@ -21,7 +21,9 @@ router.post('/createReservations', asyncHandler(
         Name,
         date,
         cost,
-        paymentImg: imagePath
+        paymentImg: imagePath,
+        isApproved,
+        TicketID
       };
     const dbReservation = await ReservationsModel.create(Reservation); 
     res.send(dbReservation);                             

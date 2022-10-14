@@ -5,7 +5,7 @@ import { EventsInfo } from '../shared/models/EventsInfo';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
 import { IEvent } from '../shared/interfaces/IEvent';
 import { ISeats } from '../shared/interfaces/ISeats';
-import { EVENTS_URL, CREATE_EVENTS_URL, CREATE_SEATS_URL,EVENTS_BY_SEARCH_URL, EVENTS_ID_URL, GET_SEATS_URL, UPDATE_SEATS_URL } from '../shared/constants/urls'
+import { EVENTS_URL, CREATE_EVENTS_URL, CREATE_SEATS_URL,EVENTS_BY_SEARCH_URL, EVENTS_ID_URL, GET_SEATS_URL, UPDATE_SEATS_URL, EVENTS_NAME_URL } from '../shared/constants/urls'
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,9 @@ export class EventsService {
     return this.http.get<EventsInfo>(EVENTS_ID_URL + eventID);
   }
 
+  getEventName(eventName:string):Observable<EventsInfo>{
+    return this.http.get<EventsInfo>(EVENTS_NAME_URL + eventName);
+  }
   
   createEvent(eventCreate :IEvent): Observable<EventsInfo>{
     return this.http.post<EventsInfo>(CREATE_EVENTS_URL, eventCreate);

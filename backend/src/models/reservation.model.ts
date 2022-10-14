@@ -8,6 +8,8 @@ export interface IReservations{
     date: string;
     cost: number;
     paymentImg: string;
+    isApproved: boolean;
+    TicketID: string;
 }
 
 export const ReservationsSchema = new Schema<IReservations>(
@@ -18,7 +20,9 @@ export const ReservationsSchema = new Schema<IReservations>(
         Name: { type:String, required:true },
         date: { type:String, required:true },
         cost: { type:Number, required:true },
-        paymentImg: String
+        paymentImg: String,
+        isApproved: { type:Boolean, required:true },
+        TicketID: String,
     },
 )
 

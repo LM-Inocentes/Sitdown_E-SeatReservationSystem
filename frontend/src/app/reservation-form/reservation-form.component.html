@@ -1,16 +1,23 @@
 
     <div class="loginbox">
-        <h1>Create</h1>
+        <h1>Seat # {{seat.SeatNo}}</h1>
         <form [formGroup]="reservationForm"  (ngSubmit)="submit()">
             <text-input [control] = "form.Name" [showErrorsWhen] = "isSubmitted" label = "Name"></text-input>
             <text-input type="date" [control] = "form.date" [showErrorsWhen] = "isSubmitted" label = "Date"></text-input>
-            <text-input [control] = "form.cost" [showErrorsWhen] = "isSubmitted" label = "Cost"></text-input>
+            <div class="container"  >
+                <label class="label">
+                  Cost
+                </label>
+            </div>
+            <div class="container">
+                <label class="input">
+                    {{event.eventCost | currency: 'PHP': 'symbol': '1.2-2'}}
+                </label>
+            </div>     
             <label for="file">Payment Screenshot</label>
             <input type="file" accept="image/*" class="file-input" (change)="onFileSelect($event)">
-
             <input type="submit" name="" value="Reserve"> 
         </form>
-    
     </div>
 
 

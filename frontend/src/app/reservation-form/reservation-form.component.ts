@@ -10,6 +10,7 @@ import { SeatsInfo } from '../shared/models/SeatsInfo';
 import { UserService } from '../services/user.service';
 import { ISeats } from '../shared/interfaces/ISeats';
 import { ReservationsService } from '../services/reservations.service';
+import { EventsInfo } from '../shared/models/EventsInfo';
 
 @Component({
   selector: 'app-reservation-form',
@@ -19,12 +20,12 @@ import { ReservationsService } from '../services/reservations.service';
 export class ReservationFormComponent implements OnInit {
 
   user!:User;
-  eventName!: string;
   isAdmin!: boolean;
   reservationForm!:FormGroup;
   isSubmitted = false;
-  seat!: SeatsInfo;
-  Col!: number;
+  seat = {} as SeatsInfo;
+  event = {} as EventsInfo;
+  returnUrl!: string;
 
   constructor(private formBuilder:FormBuilder, activatedRoute:ActivatedRoute, private location: Location, 
     userService:UserService, private reservationService: ReservationsService, private eventService:EventsService, private router:Router) { 
@@ -37,8 +38,10 @@ export class ReservationFormComponent implements OnInit {
       activatedRoute.params.subscribe((params) => {
         eventService.getSeatNo(params.eventName, params.SeatNo).subscribe(serverSeats => {
           this.seat = serverSeats;
-          this.eventName = params.eventName;
-          this.Col = params.Col;
+        });
+        eventService.getEventName(params.eventName).subscribe(serverEvent => {
+          this.event = serverEvent;
+          this.returnUrl = 'seats/'+this.event.eventName+'/'+ this.event.eventSeatCol.toString();
         });
       })
      }
@@ -47,7 +50,6 @@ export class ReservationFormComponent implements OnInit {
     this.reservationForm = this.formBuilder.group({
       Name: ['', Validators.required],
       date: ['', Validators.required],
-      cost: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     });
   }
 
@@ -65,19 +67,23 @@ export class ReservationFormComponent implements OnInit {
 
     const reservations :IReservations = {
       userEmail: this.user.email,
-      eventName: this.eventName,
+      eventName: this.event.eventName,
       seatNo: this.seat.SeatNo,
       Name: fv.Name,
       date: fv.date,
       cost: 100,
       paymentImg: '',
+      isApproved: false,
+      TicketID: ''
     };
 
+    console.log(reservations);
+
     this.reservationService.createReservation(reservations)
-    .subscribe(_ => this.router.navigateByUrl('seats/'+this.eventName+'/'+ this.Col.toString()));
+    .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
 
     const seat : ISeats = {
-      eventName: this.eventName,
+      eventName: this.event.eventName,
       SeatNo: this.seat.SeatNo,
       isAvailable: false,
       img: './assets/Reserved.png',
@@ -85,9 +91,9 @@ export class ReservationFormComponent implements OnInit {
       ReservedDate: fv.date,
       imgPayment: "",
     };
-
+    console.log(seat);
     this.eventService.updateSeat(seat)
-    .subscribe(_ => this.router.navigateByUrl('seats/'+this.eventName+'/'+ this.Col.toString()));
+    .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
   }
 
   onFileSelect(event: any) {
