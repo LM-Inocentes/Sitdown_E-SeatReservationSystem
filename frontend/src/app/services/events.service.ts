@@ -5,7 +5,7 @@ import { EventsInfo } from '../shared/models/EventsInfo';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
 import { IEvent } from '../shared/interfaces/IEvent';
 import { ISeats } from '../shared/interfaces/ISeats';
-import { EVENTS_URL, CREATE_EVENTS_URL, CREATE_SEATS_URL,EVENTS_BY_SEARCH_URL, EVENTS_ID_URL, GET_SEATS_URL, UPDATE_SEATS_URL, EVENTS_NAME_URL, ADMIN_APPROVE_SEATS_URL, ADMIN_REJECT_SEATS_URL, DELETE_EVENTS_URL, DELETE_SEATS_URL } from '../shared/constants/urls'
+import { EVENTS_URL, CREATE_EVENTS_URL, CREATE_SEATS_URL,EVENTS_BY_SEARCH_URL, EVENTS_ID_URL, GET_SEATS_URL, UPDATE_SEATS_URL, EVENTS_NAME_URL, ADMIN_APPROVE_SEATS_URL, ADMIN_REJECT_SEATS_URL, DELETE_EVENTS_URL, DELETE_SEATS_URL, UPDATE_EVENTS_URL } from '../shared/constants/urls'
 import { IReservations } from '../shared/interfaces/IReservations';
 
 @Injectable({
@@ -41,6 +41,10 @@ export class EventsService {
   
   createEvent(eventCreate :IEvent): Observable<EventsInfo>{
     return this.http.post<EventsInfo>(CREATE_EVENTS_URL, eventCreate);
+  }
+
+  updateEvent(event :IEvent): Observable<EventsInfo>{
+    return this.http.patch<EventsInfo>(UPDATE_EVENTS_URL, event);
   }
 
   deleteEvent(eventID:number){

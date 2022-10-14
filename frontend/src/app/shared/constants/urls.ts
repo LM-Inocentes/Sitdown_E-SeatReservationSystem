@@ -12,6 +12,8 @@ export const EVENTS_URL = BASE_URL + '/api/events-info';
 
 export const CREATE_EVENTS_URL = EVENTS_URL + '/create-event';
 
+export const UPDATE_EVENTS_URL = EVENTS_URL + '/totalseats/update';
+
 export const DELETE_EVENTS_URL = EVENTS_URL + '/delete-event/';
 
 export const CREATE_SEATS_URL = EVENTS_URL + '/seats';

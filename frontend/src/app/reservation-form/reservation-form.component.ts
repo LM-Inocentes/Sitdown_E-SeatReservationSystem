@@ -89,6 +89,10 @@ export class ReservationFormComponent implements OnInit {
 
     this.eventService.updateSeat(seat)
     .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
+
+    this.event.eventSeatAvail -= 1;
+    this.eventService.updateEvent(this.event)
+    .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
   }
 
   onFileSelect(event: any) {

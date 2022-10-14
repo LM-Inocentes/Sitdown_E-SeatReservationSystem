@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsInfo } from '../shared/models/EventsInfo';
 import { EventsService } from '../services/events.service';
-import { Observable } from 'rxjs';
 import { ReservationsService } from '../services/reservations.service';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/models/User';
@@ -19,6 +18,7 @@ export class CustomerProfileComponent implements OnInit {
   userReservations: Reservations[] = [];
   showImage = true;
   pending: string = "Pending";
+  event = {} as EventsInfo;
 
   constructor(private eventService: EventsService, private reservationService: ReservationsService, userService:UserService) { 
     userService.userObservable.subscribe((newUser) => {
@@ -46,8 +46,15 @@ export class CustomerProfileComponent implements OnInit {
   }
 
   Reject(reservation: IReservations){
+    console.log(reservation.eventName);
     this.reservationService.adminRejectReservations(reservation).subscribe();
     this.eventService.adminRejectSeat(reservation).subscribe();
+    this.eventService.getEventName(reservation.eventName).subscribe(serverEvent => {
+      this.event = serverEvent;
+      this.event.eventSeatAvail +=1;
+      this.eventService.updateEvent(this.event)
+        .subscribe();
+    });
     window.location.reload();
   }
 

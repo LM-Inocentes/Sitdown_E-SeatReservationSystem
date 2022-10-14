@@ -81,6 +81,17 @@ const router = Router();
   }
   ))
 
+  router.patch("/totalseats/update", asyncHandler(
+    async (req, res) =>{
+      const {eventName, eventSeatAvail} = req.body;
+      console.log(eventName);
+      console.log(eventSeatAvail)
+      const event = await EventModel.findOne({ eventName: eventName });
+      const updateEvent = await event!.updateOne({ $set: { "eventSeatAvail": eventSeatAvail } });
+      res.send(updateEvent);                    
+    }
+  ))
+
   router.delete("/delete-event/:eventID", asyncHandler(
     async (req, res) => {
       const Event = await EventModel.findOne({ eventID: req.params.eventID });
