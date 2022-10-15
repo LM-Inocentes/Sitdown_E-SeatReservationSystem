@@ -12,9 +12,6 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ReservationPageComponent } from './reservation-page/reservation-page.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
@@ -25,8 +22,6 @@ import { TextInputComponent } from './input/text-input/text-input.component';
 import { InputLoadingComponent } from './input/input-loading/input-loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
-import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 import { CustomerEventPageComponent } from './customer-event-page/customer-event-page.component';
 
 @NgModule({
@@ -37,9 +32,6 @@ import { CustomerEventPageComponent } from './customer-event-page/customer-event
     LandingpageComponent,
     RegisterComponent,
     ReservationFormComponent,
-    ReservationPageComponent,
-    FileUploadComponent,
-    AdminPageComponent,
     EventCreationComponent,
     HeaderComponent,
     CustomerEventListComponent,
@@ -49,8 +41,6 @@ import { CustomerEventPageComponent } from './customer-event-page/customer-event
     TextInputComponent,
     InputLoadingComponent,
     CustomerProfileComponent,
-    AdminEventListComponent,
-    AdminEventCreateComponent,
     CustomerEventPageComponent
   ],
   imports: [

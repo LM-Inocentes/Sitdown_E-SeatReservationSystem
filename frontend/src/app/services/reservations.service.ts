@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Reservations } from '../shared/models/Reservations';
 import { IReservations } from '../shared/interfaces/IReservations';
 import { HttpClient } from '@angular/common/http';
-import { CREATE_RESERVATIONS_URL, RESERVATIONS_DELETE_URL, RESERVATIONS_APPROVED_URL , RESERVATIONS_URL, RESERVATIONS_REJECT_URL, UPLOAD_RESERVATIONS_URL } from '../shared/constants/urls';
+import { CREATE_RESERVATIONS_URL, RESERVATIONS_APPROVED_URL , RESERVATIONS_URL, RESERVATIONS_REJECT_URL, UPLOAD_RESERVATIONS_URL, RESERVATIONS_DELETE_REJECT_URL, RESERVATIONS_EVENT_DELETE_URL } from '../shared/constants/urls';
 
 
 @Injectable({
@@ -33,8 +33,12 @@ export class ReservationsService {
     return this.http.patch<Reservations>(RESERVATIONS_REJECT_URL, reservation);
   }
 
-  adminDeleteReservations(reservation: IReservations){
-    return this.http.delete(RESERVATIONS_DELETE_URL + reservation.userEmail +'/'+ reservation.eventName +'/'+ reservation.seatNo);
+  adminDeleteReject(){
+    return this.http.delete(RESERVATIONS_DELETE_REJECT_URL);
+  }
+
+  adminEventDelete(eventName:string){
+    return this.http.delete(RESERVATIONS_EVENT_DELETE_URL + eventName);
   }
 
   createReservation(reservation: IReservations): Observable<Reservations>{

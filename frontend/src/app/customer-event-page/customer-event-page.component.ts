@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/models/User';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
+import { ReservationsService } from '../services/reservations.service';
 
 @Component({
   selector: 'app-customer-event-page',
@@ -17,7 +18,7 @@ export class CustomerEventPageComponent implements OnInit {
   user!:User;
   
   constructor(private activatedRoute:ActivatedRoute, private eventService: EventsService,
-     private router: Router, private userService: UserService) { 
+     private router: Router, private userService: UserService, private reservationService: ReservationsService) { 
      }
 
   ngOnInit(): void {
@@ -37,7 +38,10 @@ export class CustomerEventPageComponent implements OnInit {
       .subscribe(_ => this.router.navigateByUrl('/customer-event-list'));
 
     this.eventService.deleteSeats(this.event.eventName)
-      .subscribe(_ => this.router.navigateByUrl('/customer-event-list'))
+      .subscribe(_ => this.router.navigateByUrl('/customer-event-list'));
+      
+    this.reservationService.adminEventDelete(this.event.eventName)
+      .subscribe(_ => this.router.navigateByUrl('/customer-event-list'));
   }
 
 }

@@ -67,10 +67,11 @@ button:active {
     transform: scale(0.99);
 }
 
+.clear{
+    margin: 2rem;
+}
 
 button {
-  display: flex;
-  align-items: center;
   padding: 6px 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   border-radius: 6px;
@@ -95,3 +96,7 @@ a{
     color: rgb(119, 13, 29);
     font-weight: bold;
 }
+
+div{
+    text-align: center;
+  }

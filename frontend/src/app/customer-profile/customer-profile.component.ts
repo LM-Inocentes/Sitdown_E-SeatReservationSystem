@@ -49,7 +49,6 @@ export class CustomerProfileComponent implements OnInit {
   }
 
   Reject(reservation: IReservations){
-    console.log(reservation.eventName);
     this.reservationService.adminRejectReservations(reservation).subscribe();
     this.eventService.adminRejectSeat(reservation).subscribe();
     this.eventService.updateEvent(reservation.eventName, 1).subscribe();
@@ -58,6 +57,11 @@ export class CustomerProfileComponent implements OnInit {
 
   sanitize(url:string, url2:string){
     return this.sanitizer.bypassSecurityTrustUrl(url+url2);
+  }
+
+  ClearReject(){
+    this.reservationService.adminDeleteReject().subscribe();
+    window.location.reload();
   }
 
 }

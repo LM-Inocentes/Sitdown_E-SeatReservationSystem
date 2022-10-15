@@ -24,12 +24,14 @@
                 <a [attr.href]="reservation.paymentImg" target="_blank">Click Link</a>
             </td>
             <td *ngIf="user.isAdmin && reservation.isApproved === pending; else elseBlock">   
-                <button (click)="Approve(reservation)">
-                    Approve
-                </button>
-                <button (click)="Reject(reservation)">
-                    Reject
-                </button>
+                <div>
+                    <button (click)="Approve(reservation)">
+                        Approve
+                    </button>
+                    <button (click)="Reject(reservation)">
+                        Reject
+                    </button>
+                </div>
             </td>
             <ng-template #elseBlock>
                 <td>
@@ -40,4 +42,9 @@
         </tr>
         </tbody>
     </table>
+    <div *ngIf="user.isAdmin">
+        <button class="clear" (click)="ClearReject()">
+            Clear Rejected Reservations
+        </button>
+    </div> 
 </body>

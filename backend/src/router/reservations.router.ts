@@ -46,7 +46,7 @@ router.post('/createReservations', asyncHandler(
 
 router.get("/", asyncHandler(
     async (req, res) =>{
-        const reservations = await ReservationsModel.find().sort({userEmail:1, eventName: 1, seatNo: 1});
+        const reservations = await ReservationsModel.find().sort({ eventName: 1, userEmail:1, seatNo: 1});
         res.send(reservations);                    
     }
 ))
@@ -77,11 +77,17 @@ router.patch("/update/reject", asyncHandler(
   }
 ))
 
-router.delete("/delete/:userEmail/:eventName/:seatNo", asyncHandler(
+router.delete("/deleteReject", asyncHandler(
   async (req, res) => {
-    const reservation = await ReservationsModel.findOne({ userEmail: req.params.userEmail, eventName: req.params.eventName, seatNo: req.params.seatNo });
-    const updateReservation = await reservation!.delete();   
-    res.send("Reservation deleted");
+    const reservation = await ReservationsModel.deleteMany({isApproved: "Rejected"}); 
+    res.send("Rejected Reservations Deleted");
+  }
+))
+
+router.delete("/delete/:eventName", asyncHandler(
+  async (req, res) => {
+    const reservation = await ReservationsModel.deleteMany({eventName: req.params.eventName}); 
+    res.send("Rejected Reservations Deleted");
   }
 ))
 

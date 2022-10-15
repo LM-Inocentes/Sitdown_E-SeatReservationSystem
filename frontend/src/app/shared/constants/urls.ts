@@ -48,5 +48,8 @@ export const RESERVATIONS_APPROVED_URL = BASE_URL + '/api/reservations/update/ap
 
 export const RESERVATIONS_REJECT_URL = BASE_URL + '/api/reservations/update/reject';
 
-export const RESERVATIONS_DELETE_URL = BASE_URL + '/api/reservations/delete/';
+export const RESERVATIONS_DELETE_REJECT_URL = BASE_URL + '/api/reservations/deleteReject';
+
+export const RESERVATIONS_EVENT_DELETE_URL = BASE_URL + '/api/reservations/delete/';
+
 

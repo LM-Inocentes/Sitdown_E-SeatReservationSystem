@@ -6,11 +6,8 @@ import { SeatsComponent } from './seats/seats.component';
 import { RegisterComponent } from './register/register';
 import { CustomerEventListComponent } from './customer-event-list/customer-event-list.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-import { AdminEventListComponent } from './admin-event-list/admin-event-list.component';
-import { AdminEventCreateComponent } from './admin-event-create/admin-event-create.component';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
-import { AuthGuard } from './services/auth-guard.guard';
 import { CustomerEventPageComponent } from './customer-event-page/customer-event-page.component';
 
 const routes: Routes = [
@@ -20,8 +17,6 @@ const routes: Routes = [
     {path : 'customer-event-list', component : CustomerEventListComponent},
     {path : 'search/:searchTerm', component : CustomerEventListComponent},
     {path : 'customer-profile', component : CustomerProfileComponent},
-    {path : 'admin-event-list', component : AdminEventListComponent},
-    {path : 'admin-event-create', component : AdminEventCreateComponent},
     {path : 'event-creation', component : EventCreationComponent},
     {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
     {path: 'seats/:eventName/:eventSeatCol', component : SeatsComponent},
