@@ -8,5 +8,5 @@ export const dbConnect = () => {
         () => console.log("connect successfully"),
         (error) => console.log(error)
         )
-    
 }
+

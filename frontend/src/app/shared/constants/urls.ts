@@ -10,9 +10,11 @@ export const USER_GET_URL = BASE_URL + '/api/users/';
 
 export const EVENTS_URL = BASE_URL + '/api/events-info';
 
+export const IMG_EVENTS_URL = EVENTS_URL + '/upload';
+
 export const CREATE_EVENTS_URL = EVENTS_URL + '/create-event';
 
-export const UPDATE_EVENTS_URL = EVENTS_URL + '/totalseats/update';
+export const UPDATE_EVENTS_URL = EVENTS_URL + '/totalseats/update/';
 
 export const DELETE_EVENTS_URL = EVENTS_URL + '/delete-event/';
 
@@ -39,6 +41,8 @@ export const EVENTS_NAME_URL = EVENTS_URL + '/get/';
 export const RESERVATIONS_URL = BASE_URL + '/api/reservations/';
 
 export const CREATE_RESERVATIONS_URL = RESERVATIONS_URL + 'createReservations';
+
+export const UPLOAD_RESERVATIONS_URL = RESERVATIONS_URL + 'upload';
 
 export const RESERVATIONS_APPROVED_URL = BASE_URL + '/api/reservations/update/approve';
 

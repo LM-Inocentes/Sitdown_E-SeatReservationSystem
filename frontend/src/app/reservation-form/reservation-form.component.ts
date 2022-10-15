@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from '../services/events.service';
@@ -18,12 +18,17 @@ import { EventsInfo } from '../shared/models/EventsInfo';
 })
 export class ReservationFormComponent implements OnInit {
 
+  @ViewChild('fileInput', { static: false })
+  fileInput!: ElementRef;
+  
   user!:User;
   reservationForm!:FormGroup;
   isSubmitted = false;
   seat = {} as SeatsInfo;
   event = {} as EventsInfo;
   returnUrl!: string;
+  imgName!: string;
+
 
   constructor(private formBuilder:FormBuilder, activatedRoute:ActivatedRoute, userService:UserService, 
     private reservationService: ReservationsService, private eventService:EventsService, private router:Router) { 
@@ -56,6 +61,11 @@ export class ReservationFormComponent implements OnInit {
   }
   
   submit(){
+
+    const imageBlob = this.fileInput.nativeElement.files[0];
+    const file = new FormData();
+    file.set('file', imageBlob);
+    this.eventService.upload(file).subscribe();
     
     this.isSubmitted = true;
     if(this.reservationForm.invalid) return;
@@ -69,7 +79,7 @@ export class ReservationFormComponent implements OnInit {
       Name: fv.Name,
       date: fv.date,
       cost: this.event.eventCost,
-      paymentImg: '',
+      paymentImg: '/assets/uploads/'+this.imgName,
       isApproved: "Pending",
       TicketID: "none"
     };
@@ -90,12 +100,12 @@ export class ReservationFormComponent implements OnInit {
     this.eventService.updateSeat(seat)
     .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
 
-    this.event.eventSeatAvail -= 1;
-    this.eventService.updateEvent(this.event)
+    this.eventService.updateEvent(this.event.eventName, -1)
     .subscribe(_ => this.router.navigateByUrl(this.returnUrl));
   }
 
-  onFileSelect(event: any) {
+  onFileSelect(file:any) {
+    this.imgName = file.target.files[0].name;
   }
 
 

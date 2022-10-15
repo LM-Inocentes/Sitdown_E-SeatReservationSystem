@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Reservations } from '../shared/models/Reservations';
 import { IReservations } from '../shared/interfaces/IReservations';
 import { HttpClient } from '@angular/common/http';
-import { CREATE_RESERVATIONS_URL, RESERVATIONS_DELETE_URL, RESERVATIONS_APPROVED_URL , RESERVATIONS_URL, RESERVATIONS_REJECT_URL } from '../shared/constants/urls';
+import { CREATE_RESERVATIONS_URL, RESERVATIONS_DELETE_URL, RESERVATIONS_APPROVED_URL , RESERVATIONS_URL, RESERVATIONS_REJECT_URL, UPLOAD_RESERVATIONS_URL } from '../shared/constants/urls';
 
 
 @Injectable({
@@ -12,6 +12,10 @@ import { CREATE_RESERVATIONS_URL, RESERVATIONS_DELETE_URL, RESERVATIONS_APPROVED
 export class ReservationsService {
   
   constructor(private http:HttpClient) { }
+
+  upload(file: any){
+    return this.http.post( UPLOAD_RESERVATIONS_URL, file);
+  }
   
   getReservations(): Observable<Reservations[]>{
     return this.http.get<Reservations[]>(RESERVATIONS_URL);

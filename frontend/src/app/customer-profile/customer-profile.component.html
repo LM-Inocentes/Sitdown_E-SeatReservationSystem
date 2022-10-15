@@ -3,12 +3,6 @@
     <table class='res-table'>
         <thead>
         <tr>
-            <th class="event-img">
-                <button class='btn btn-primary'
-                        (click)='toggleImage()'>
-                    {{showImage ? 'Hide ' : 'Show'}} Image
-                </button>
-            </th>
             <th>Event</th>
             <th>Seat #</th>
             <th *ngIf="user.isAdmin">Email</th>
@@ -21,17 +15,14 @@
         </thead>
         <tbody>
         <tr *ngFor='let reservation of userReservations'>
-            <td>
-                <img *ngIf='showImage'
-                     src="./assets/aurorafest.jpg"
-                     [title]='reservation.eventName'>
-            </td>
             <td>{{reservation.eventName}}</td>
             <td>{{ reservation.seatNo }}</td>
             <td *ngIf="user.isAdmin">{{reservation.userEmail}}</td>
             <td>{{ reservation.Name }}</td>
             <td>{{ reservation.date }}</td>
-            <td>{{ reservation.paymentImg }}</td>
+            <td>
+                <a [attr.href]="reservation.paymentImg" target="_blank">Click Link</a>
+            </td>
             <td *ngIf="user.isAdmin && reservation.isApproved === pending; else elseBlock">   
                 <button (click)="Approve(reservation)">
                     Approve

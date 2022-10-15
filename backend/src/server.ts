@@ -8,6 +8,7 @@ import eventsRouter from './router/events.router';
 import userRouter from './router/user.router';
 import reservationsRouter from './router/reservations.router';
 
+
 dbConnect();
 
 const app = express();

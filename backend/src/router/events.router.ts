@@ -4,9 +4,19 @@ import  asyncHandler  from 'express-async-handler';
 import { EventModel, IEvent } from '../models/event.model';
 import { SeatModel, ISeats } from '../models/seats.model';
 import { HTTP_BAD_REQUEST } from '../constants/httpstatus';
+import multer from 'multer';
+
+
+const storage = multer.diskStorage({
+    destination: '../../frontend/src/assets/uploads',
+    filename: function(req, file, cb){
+        cb(null, file.originalname) 
+    }
+})
+
+const upload = multer({ storage: storage})
 
 const router = Router();
-
 
   router.get("/seed", asyncHandler( async (req, res) =>{
       const eventsCount = await EventModel.countDocuments();
@@ -49,17 +59,21 @@ const router = Router();
     }
   ))
 
+  router.post("/upload", upload.single('file') ,asyncHandler(
+    async (req, res) => {
+      res.send();
+    }
+  ))
+
   router.post('/create-event', asyncHandler(
     async (req, res) => {
-      const {eventName, eventDate, eventLoc, eventSeatTotal, eventSeatCol, eventSeatAvail, eventCost, eventAbout} = req.body;
+      const {eventName, eventDate, eventLoc, eventSeatTotal, eventSeatCol, eventSeatAvail, eventCost, eventAbout, eventImg} = req.body;
       const event = await EventModel.findOne({eventName});
       if(event){
         res.status(HTTP_BAD_REQUEST)
         .send('Event name already exists!');
         return;
       }
-
-      const imagePath = "./assets/aurorafest.jpg" ;
       
       const count = await EventModel.countDocuments();
 
@@ -74,20 +88,17 @@ const router = Router();
         eventSeatAvail,
         eventCost,
         eventAbout,
-        eventImg: imagePath,
+        eventImg,
       };
     const dbEvent = await EventModel.create(Event); 
     res.send(dbEvent);                             
   }
   ))
 
-  router.patch("/totalseats/update", asyncHandler(
+  router.patch("/totalseats/update/:eventName/:value", asyncHandler(
     async (req, res) =>{
-      const {eventName, eventSeatAvail} = req.body;
-      console.log(eventName);
-      console.log(eventSeatAvail)
-      const event = await EventModel.findOne({ eventName: eventName });
-      const updateEvent = await event!.updateOne({ $set: { "eventSeatAvail": eventSeatAvail } });
+      const event = await EventModel.findOne({ eventName: req.params.eventName });
+      const updateEvent = await event!.updateOne({$inc: {eventSeatAvail: req.params.value}});
       res.send(updateEvent);                    
     }
   ))

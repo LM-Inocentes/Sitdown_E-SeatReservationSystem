@@ -15,7 +15,7 @@
                 </label>
             </div>     
             <label for="file">Payment Screenshot</label>
-            <input type="file" accept="image/*" class="file-input" (change)="onFileSelect($event)">
+            <input #fileInput type="file" accept="image/*" class="file-input" (change)="onFileSelect($event)">
             <input type="submit" name="" value="Reserve"> 
         </form>
     </div>

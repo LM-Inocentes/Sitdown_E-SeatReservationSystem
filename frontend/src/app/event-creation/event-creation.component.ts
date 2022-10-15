@@ -1,11 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventsService } from '../services/events.service';
 import { IEvent } from '../shared/interfaces/IEvent';
 import { SeatsInfo } from '../shared/models/SeatsInfo';
-
 
 @Component({
   selector: 'app-event-creation',
@@ -14,12 +13,15 @@ import { SeatsInfo } from '../shared/models/SeatsInfo';
 })
 export class EventCreationComponent implements OnInit {
 
+  @ViewChild('fileInput', { static: false })
+  fileInput!: ElementRef;
+
   eventForm!:FormGroup;
   isSubmitted = false;
   returnUrl = 'customer-event-list';
   imageData!: string;
   seats:SeatsInfo[] = [];
-
+  imgName!:string;
 
   constructor(private formBuilder:FormBuilder, private eventService: EventsService, private router:Router) { }
 
@@ -44,7 +46,12 @@ export class EventCreationComponent implements OnInit {
 
 
   submit(){
-    
+
+    const imageBlob = this.fileInput.nativeElement.files[0];
+    const file = new FormData();
+    file.set('file', imageBlob);
+    this.eventService.upload(file).subscribe();
+
     this.isSubmitted = true;
     if(this.eventForm.invalid) return;
 
@@ -59,10 +66,11 @@ export class EventCreationComponent implements OnInit {
       eventSeatAvail: fv.eventSeatTotal,
       eventCost: fv.eventCost,
       eventAbout: fv.eventAbout,
-      eventImg: '',
+      eventImg: './assets/uploads/'+this.imgName,
     };
 
     console.log(event);
+
     this.eventService.createEvent(event).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
     })
@@ -83,20 +91,8 @@ export class EventCreationComponent implements OnInit {
     }
   }
 
-  onFileSelect(event: any) {
-    if (!event.target.files) return;
-    const file = (event.target as HTMLInputElement).files![0];
-    this.eventForm.patchValue({ eventImg: file });
-    const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
-    if (file && allowedMimeTypes.includes(file.type)) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imageData = reader.result as string;
-        console.log(this.imageData);
-      };
-      reader.readAsDataURL(file);
-    }
-  } 
-
+  onFileSelect(file:any) {
+    this.imgName = file.target.files[0].name;
+  }
 }
 

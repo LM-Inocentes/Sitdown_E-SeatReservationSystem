@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../shared/models/User';
 import { Reservations } from '../shared/models/Reservations';
 import { IReservations } from '../shared/interfaces/IReservations';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-customer-profile',
@@ -19,8 +20,10 @@ export class CustomerProfileComponent implements OnInit {
   showImage = true;
   pending: string = "Pending";
   event = {} as EventsInfo;
+  eventImg!: string;
+  imgUrl: string = 'localhost:4200';
 
-  constructor(private eventService: EventsService, private reservationService: ReservationsService, userService:UserService) { 
+  constructor(private eventService: EventsService, private reservationService: ReservationsService, userService:UserService, private sanitizer:DomSanitizer) { 
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
     });
@@ -49,17 +52,12 @@ export class CustomerProfileComponent implements OnInit {
     console.log(reservation.eventName);
     this.reservationService.adminRejectReservations(reservation).subscribe();
     this.eventService.adminRejectSeat(reservation).subscribe();
-    this.eventService.getEventName(reservation.eventName).subscribe(serverEvent => {
-      this.event = serverEvent;
-      this.event.eventSeatAvail +=1;
-      this.eventService.updateEvent(this.event)
-        .subscribe();
-    });
+    this.eventService.updateEvent(reservation.eventName, 1).subscribe();
     window.location.reload();
   }
 
-  toggleImage(): void {
-    this.showImage = !this.showImage;
+  sanitize(url:string, url2:string){
+    return this.sanitizer.bypassSecurityTrustUrl(url+url2);
   }
 
 }
