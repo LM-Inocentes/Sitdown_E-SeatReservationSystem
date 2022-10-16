@@ -11,17 +11,18 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
 import { CustomerEventPageComponent } from './customer-event-page/customer-event-page.component';
 
 const routes: Routes = [
-    {path : '', component : LandingpageComponent},
-    {path : 'login', component : LoginComponent},
-    {path : 'register', component : RegisterComponent},
-    {path : 'customer-event-list', component : CustomerEventListComponent},
-    {path : 'search/:searchTerm', component : CustomerEventListComponent},
-    {path : 'customer-profile', component : CustomerProfileComponent},
-    {path : 'event-creation', component : EventCreationComponent},
-    {path: 'customer-event-list/:eventID', component : CustomerEventPageComponent},
-    {path: 'seats/:eventName/:eventSeatCol', component : SeatsComponent},
-    {path : 'reservation/:eventName/:SeatNo', component : ReservationFormComponent},
-  ];
+  {path : '', title: 'Home', component : LandingpageComponent},
+  {path : 'login',title: 'Login',  component : LoginComponent},
+  {path : 'register',title: 'Register',  component : RegisterComponent},
+  {path : 'customer-event-list',title: 'Events',  component : CustomerEventListComponent},
+  {path : 'search/:searchTerm',title: 'Events',  component : CustomerEventListComponent},
+  {path : 'customer-profile', title: 'Reservations', component : CustomerProfileComponent},
+  {path : 'event-creation',title: 'Create Event',  component : EventCreationComponent},
+  {path: 'customer-event-list/:eventID',title: 'Event Page',  component : CustomerEventPageComponent},
+  {path: 'seats/:eventName/:eventSeatCol',title: 'Seats',  component : SeatsComponent},
+  {path : 'reservation/:eventName/:SeatNo',title: 'Reserve',  component : ReservationFormComponent},
+];
+
 
 // configures NgModule imports and exports
 @NgModule({
