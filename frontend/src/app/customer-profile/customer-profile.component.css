@@ -40,8 +40,12 @@ td{
     border-bottom: 1px solid lightgray;
 }
 
-.res-table tbody tr:nth-of-type(even){
+.res-table tbody tr:nth-of-type(odd){
     background-color: #f3f3f3;
+}
+
+.res-table tbody tr:nth-of-type(even){
+    background-color: rgb(233, 227, 238);
 }
 
 .res-table tbody tr:last-of-type{

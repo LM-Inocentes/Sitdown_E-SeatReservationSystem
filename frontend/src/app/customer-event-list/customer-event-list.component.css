@@ -87,6 +87,7 @@ ul{
     border-radius: 6px;
     border: none;
     margin: 1px;
+    margin-bottom: 10px;
   
     color: #fff;
     background: linear-gradient(180deg, rgb(43, 11, 80) 0%, #0f306e 100%);

@@ -1,10 +1,8 @@
 body{
     margin: 0;
     padding: 10;
-    background: rgba(63, 33, 33, 0.227);
-    background-size: cover;
-    background-position: center;
     font-family: sans-serif;
+    display: flex;
 }
 
 .loginbox{
@@ -12,10 +10,8 @@ body{
     height: 800px;
     background: rgb(43, 11, 80);
     color: #fff;
-    top: 65%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
+    margin:auto;
+    margin-top: 50px;
     box-sizing: border-box;
     padding: 30px 30px;
     border-radius: 20px;
