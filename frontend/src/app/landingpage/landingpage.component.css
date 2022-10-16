@@ -6,11 +6,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .homepage {
 
     justify-content: center;
     padding: 0;
-    height: 95vh;
+    height: 94.4vh;
     width: 100%;
     box-sizing: border-box;
     background: linear-gradient(218.31deg, rgba(54, 79, 107, 0.602412) 0%, 

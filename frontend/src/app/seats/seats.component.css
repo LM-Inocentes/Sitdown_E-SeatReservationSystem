@@ -1,7 +1,10 @@
-
+.seat-div {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
 button {
     border: none;
-    margin: 0;
+    margin: 1px;
     text-decoration: none;
     background-color:none ;
     color: #000000;

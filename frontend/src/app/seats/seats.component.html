@@ -1,4 +1,4 @@
-<div align="center" *ngIf ="isAuth">
+<div class="seat-div" align="center" *ngIf ="isAuth">
     <ng-container  *ngFor = "let seat of seats">
             <div  *ngIf="Rowdiv(seat.SeatNo)"> </div>
                 <button  *ngIf = "seat.isAvailable; else elseBlock" routerLink="/reservation/{{eventName}}/{{seat.SeatNo}}">
